@@ -18,10 +18,10 @@ class Hasil_ujian extends CI_Controller
 		if (isset($_GET['id'])) {
 			$id = $this->input->get('id');
 			$data['hasil'] = $this->m_hasil->get_peserta2($id);
-			$data['kelas']=$this->m_data->get_data('tb_matapelajaran')->result();
+			$data['kelas']=$this->m_data->get_data('tb_materi')->result();
 		} else {
 			$data['hasil'] = $this->m_hasil->get_peserta3();
-			$data['kelas']=$this->m_data->get_data('tb_matapelajaran')->result();
+			$data['kelas']=$this->m_data->get_data('tb_materi')->result();
 		}		
 		$this->load->view('admin/v_hasil', $data);
 	}

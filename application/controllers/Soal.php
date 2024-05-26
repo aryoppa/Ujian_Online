@@ -16,32 +16,47 @@ class Soal extends CI_Controller
 
 	public function index()
 	{
-		$data['soal'] = $this->m_data->get_data('tb_matapelajaran')->result();
+		$data['soal'] = $this->m_data->get_data('tb_materi')->result();
 		$this->load->view('admin/v_soal', $data);
 	}
 
 	public function insert()
 	{
-		$nama_matapelajaran 	= $this->input->post('nama_matapelajaran');
-		$soal				= $this->input->post('soal');
+		$nama_materi 		= $this->input->post('nama_materi');
+		$pertanyaan			= $this->input->post('pertanyaan');
 		$a 					= $this->input->post('a');
 		$b					= $this->input->post('b');
 		$c					= $this->input->post('c');
 		$d					= $this->input->post('d');
 		$e					= $this->input->post('e');
 		$kunci				= $this->input->post('kunci');
+		$alasan_1			= $this->input->post('alasan_1');
+		$alasan_2			= $this->input->post('alasan_2');
+		$alasan_3			= $this->input->post('alasan_3');
+		$kunci_alasan		= $this->input->post('kunci_alasan');
+		$pembahasan			= $this->input->post('pembahasan');
+		
+
 		$data = array(
-			'id_matapelajaran' => $nama_matapelajaran,
-			'pertanyaan' => $soal,
+			'id_materi' => $nama_materi,
+			'pertanyaan' => $pertanyaan,
 			'a' => $a,
 			'b' => $b,
 			'c' => $c,
 			'd' => $d,
 			'e' => $e,
-			'kunci_jawaban' => $kunci
+			'kunci_jawaban' => $kunci,
+			'alasan_1' => $alasan_1,
+			'alasan_2' => $alasan_2,
+			'alasan_3' => $alasan_3,
+			'kunci_alasan' => $kunci_alasan,
+			'pembahasan'	=> $pembahasan,
+			
+			
 		);
-		if ($nama_matapelajaran == '' || $soal == '') {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-message alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Maaf, Input Soal Gagal!</h4> Mata Kuliah dan Pertanyaan Soal tidak boleh dikosongkan.</div>');
+		if ($nama_materi == '' && $pertanyaan == '') {
+			echo($id_materi);
+			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-message alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Maaf, Input Soal Gagal!</h4> Mata Kuliah dan Pertanyaan Soal tidak boleh dikosongkan. ' . $nama_materi . '</div>');
 			redirect(base_url('soal'));
 		} else {
 			$this->m_data->insert_data($data, 'tb_soal_ujian');

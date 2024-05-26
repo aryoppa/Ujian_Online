@@ -31,18 +31,18 @@ $this->load->view('admin/sidebar');
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
-                        <center><h4 class="modal-title">Tambah Mata Pelajaran</h4></center>
+                        <center><h4 class="modal-title">Tambah Materi</h4></center>
                       </div>
                       <!-- /.form dengan modal -->
-                      <form method="post" action="<?php echo base_url().'matapelajaran/mapel_aksi'; ?>">
+                      <form method="post" action="<?php echo base_url().'materi/mapel_aksi'; ?>">
                         <div class="modal-body">
                           <div class="form-group">
-                            <label class="font-weight-bold">Kode Mata Pelajaran </label>
-                            <input type="text" class="form-control" name="kode" placeholder="Masukkan Kode Mata Pelajaran" required="">
+                            <label class="font-weight-bold">Kode Materi </label>
+                            <input type="text" class="form-control" name="kode" placeholder="Masukkan Kode Materi" required="">
                           </div>
                           <div class="form-group">
-                            <label class="font-weight-bold">Nama Mata Pelajaran</label>
-                            <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Mata Pelajaran" required="">
+                            <label class="font-weight-bold">Nama Materi</label>
+                            <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Materi" required="">
                           </div>
                         </div>
                         <div class="modal-footer">
@@ -71,12 +71,12 @@ $this->load->view('admin/sidebar');
 
                             
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">Mata Pelajaran</label>
+                                <label class="col-sm-2 control-label">Materi</label>
                                 <div class="col-sm-10">
-                                    <select class="select2 form-control" name="nama_matapelajaran" required="">
-                                        <option selected="selected" disabled="" value="">- Pilih Mata Pelajaran -</option>
+                                    <select class="select2 form-control" name="nama_materi" required="">
+                                        <option selected="selected" disabled="" value="">- Pilih Materi -</option>
                                         <?php foreach ($soal as $a) { ?>
-                                            <option value="<?= $a->id_matapelajaran ?>"><?= $a->kode_matapelajaran; ?> | <?= $a->nama_matapelajaran; ?></option>
+                                            <option value="<?= $a->id_materi ?>"><?= $a->kode_materi; ?> | <?= $a->nama_materi; ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -85,7 +85,7 @@ $this->load->view('admin/sidebar');
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Tulis Soal Ujian</label>
                                 <div class="col-sm-10">
-                                    <textarea  class="soal" name="soal" required></textarea>
+                                    <textarea  class="pertanyaan" name="pertanyaan" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -132,9 +132,44 @@ $this->load->view('admin/sidebar');
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">Alasan 1</label>
+                                <div class="col-sm-10">
+                                    <textarea rows="2" style="width: 100%" name="alasan_1" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Alasan 2</label>
+                                <div class="col-sm-10">
+                                    <textarea rows="2" style="width: 100%" name="alasan_2" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Alasan 3</label>
+                                <div class="col-sm-10">
+                                    <textarea rows="2" style="width: 100%" name="alasan_3" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Kunci Alasan</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="kunci_alasan" required>
+                                        <option selected="selected" disabled="" value="">- Pilih Kunci Alasan -</option>
+                                        <option value="alasan_1">alasan 1</option>
+                                        <option value="alasan_2">alasan 2</option>
+                                        <option value="alasan_3">alasan 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Tulis Pembahasan</label>
+                                <div class="col-sm-10">
+                                    <textarea  class="pembahasan" name="pembahasan" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label"></label>
                                 <div class="col-sm-10">
-                     <a href="<?=base_url('soal_ujian')?>" class="btn btn-default btn-flat"><span class="fa fa-arrow-left"></span> Kembali</a>
+                                    <a href="<?=base_url('soal_ujian')?>" class="btn btn-default btn-flat"><span class="fa fa-arrow-left"></span> Kembali</a>
                                     <button type="submit" class="btn btn-primary btn-flat" title="Tambah Data Soal Ujian"><span class="fa fa-save"></span> Simpan</button>
                                 </div>
                             </div>

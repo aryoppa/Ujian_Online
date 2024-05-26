@@ -31,10 +31,10 @@ $this->load->view('admin/sidebar');
                             <label class="col-sm-2 control-label">Mata Pelajaran</label>
                             <input type="hidden" name="id" value="<?=$s->id_soal_ujian?>">
                             <div class="col-sm-10">
-                                <select class="select2 form-control" name="nama_matapelajaran" required="">
+                                <select class="select2 form-control" name="nama_materi" required="">
                                     <option selected="selected" disabled="">- Pilih Mata Pelajaran -</option>
                                     <?php foreach($kelas as $a) { ?>
-                                      <option value="<?=$a->id_matapelajaran?>" <?php if($s->nama_matapelajaran==$a->nama_matapelajaran){echo "selected='selected'";} ?>><?= $a->kode_matapelajaran;?> | <?= $a->nama_matapelajaran;?></option>
+                                      <option value="<?=$a->id_materi?>" <?php if($s->nama_materi==$a->nama_materi){echo "selected='selected'";} ?>><?= $a->kode_materi;?> | <?= $a->nama_materi;?></option>
                                   <?php } ?>
                                 </select>
                                 
@@ -43,7 +43,7 @@ $this->load->view('admin/sidebar');
                        <div class="form-group">
                             <label class="col-sm-2 control-label">Tulis Soal Ujian</label>
                             <div class="col-sm-10">
-                                <textarea name="soal" class="soal" required><?= $s->pertanyaan;?></textarea>
+                                <textarea name="pertanyaan" class="pertanyaan" required><?= $s->pertanyaan;?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -86,6 +86,30 @@ $this->load->view('admin/sidebar');
                                     <option <?php if($s->kunci_jawaban=='D'){echo "selected='selected'";} ?>>D</option>
                                     <option <?php if($s->kunci_jawaban=='E'){echo "selected='selected'";} ?>>E</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Alasan 1</label>
+                            <div class="col-sm-10">
+                                <textarea rows="2" style="width: 100%" name="alasan_1" required><?= $s->alasan_1;?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Alasan 2</label>
+                            <div class="col-sm-10">
+                                <textarea rows="2" style="width: 100%" name="alasan_2" required><?= $s->alasan_2;?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Alasan 3</label>
+                            <div class="col-sm-10">
+                                <textarea rows="2" style="width: 100%" name="alasan_3" required><?= $s->alasan_3;?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Tulis Pembahasan</label>
+                            <div class="col-sm-10">
+                                <textarea name="pembahasan" class="pembahasan" required><?= $s->pembahasan;?></textarea>
                             </div>
                         </div>
                         <div class="form-group">

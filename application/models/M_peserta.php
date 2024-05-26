@@ -7,7 +7,7 @@ class M_peserta extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tb_peserta');
-        $this->db->join('tb_matapelajaran', 'tb_peserta.id_matapelajaran=tb_matapelajaran.id_matapelajaran');
+        $this->db->join('tb_materi', 'tb_peserta.id_materi=tb_materi.id_materi');
         $this->db->join('tb_siswa', 'tb_peserta.id_siswa=tb_siswa.id_siswa');
         $this->db->join('tb_jenis_ujian', 'tb_peserta.id_jenis_ujian=tb_jenis_ujian.id_jenis_ujian');
         $this->db->where('tb_peserta.id_peserta', $id);
@@ -20,7 +20,7 @@ class M_peserta extends CI_Model
         $array = array('tb_kelas.id_kelas' => $idkls, 'tb_siswa.id_siswa' => $idsiswa);
         $this->db->select('*');
         $this->db->from('tb_peserta');
-        $this->db->join('tb_matapelajaran', 'tb_peserta.id_matapelajaran=tb_matapelajaran.id_matapelajaran');
+        $this->db->join('tb_materi', 'tb_peserta.id_materi=tb_materi.id_materi');
         $this->db->join('tb_siswa', 'tb_peserta.id_siswa=tb_siswa.id_siswa');
         $this->db->join('tb_jenis_ujian', 'tb_peserta.id_jenis_ujian=tb_jenis_ujian.id_jenis_ujian');
         $this->db->join('tb_kelas', 'tb_kelas.id_kelas=tb_siswa.id_kelas', 'left');
@@ -34,7 +34,7 @@ class M_peserta extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tb_peserta');
-        $this->db->join('tb_matapelajaran', 'tb_peserta.id_matapelajaran=tb_matapelajaran.id_matapelajaran');
+        $this->db->join('tb_materi', 'tb_peserta.id_materi=tb_materi.id_materi');
         $this->db->join('tb_siswa', 'tb_peserta.id_siswa=tb_siswa.id_siswa');
         $this->db->join('tb_jenis_ujian', 'tb_peserta.id_jenis_ujian=tb_jenis_ujian.id_jenis_ujian');
         $this->db->join('tb_kelas', 'tb_kelas.id_kelas=tb_siswa.id_kelas', 'left');
@@ -48,7 +48,7 @@ class M_peserta extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tb_peserta');
-        $this->db->join('tb_matapelajaran', 'tb_peserta.id_matapelajaran=tb_matapelajaran.id_matapelajaran');
+        $this->db->join('tb_materi', 'tb_peserta.id_materi=tb_materi.id_materi');
         $this->db->join('tb_siswa', 'tb_peserta.id_siswa=tb_siswa.id_siswa');
         $this->db->join('tb_jenis_ujian', 'tb_peserta.id_jenis_ujian=tb_jenis_ujian.id_jenis_ujian');
         $this->db->join('tb_kelas', 'tb_kelas.id_kelas=tb_siswa.id_kelas', 'left');
@@ -62,7 +62,7 @@ class M_peserta extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tb_peserta');
-        $this->db->join('tb_matapelajaran', 'tb_peserta.id_matapelajaran=tb_matapelajaran.id_matapelajaran');
+        $this->db->join('tb_materi', 'tb_peserta.id_materi=tb_materi.id_materi');
         $this->db->join('tb_siswa', 'tb_peserta.id_siswa=tb_siswa.id_siswa');
         $this->db->join('tb_jenis_ujian', 'tb_peserta.id_jenis_ujian=tb_jenis_ujian.id_jenis_ujian');
         $this->db->join('tb_kelas', 'tb_kelas.id_kelas=tb_siswa.id_kelas', 'left');

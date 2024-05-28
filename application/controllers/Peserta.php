@@ -53,7 +53,7 @@ class peserta extends CI_Controller
 	public function edit($id)
 	{
 		$data['peserta'] = $this->m_peserta->get_joinpeserta($id);
-		$data['mapel'] = $this->m_data->get_data('tb_matapelajaran')->result();
+		$data['nama_materi'] = $this->m_data->get_data('tb_materi')->result();
 		$data['siswa'] = $this->m_data->get_data('tb_siswa')->result();
 		$data['jenis_ujian'] = $this->m_data->get_data('tb_jenis_ujian')->result();
 		$this->load->view('admin/v_peserta_edit', $data);
@@ -62,7 +62,7 @@ class peserta extends CI_Controller
 	public function update()
 	{
 		$peserta 		= $this->input->post('peserta');
-		$mapel 			= $this->input->post('mapel');
+		$nama_materi 		= $this->input->post('nama_materi');
 		$tanggal		= $this->input->post('tanggal');
 		$jam			= $this->input->post('jam');
 		$durasi_ujian		= $this->input->post('durasi_ujian');

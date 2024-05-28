@@ -65,12 +65,12 @@ $this->load->view('admin/sidebar');
                 <form class="form-horizontal" action="<?=base_url('peserta_tambah/insert_');?>" method="post">
                    <div class="box-body">
                     <div class="form-group">
-                      <label for="inputPassword3" class="col-sm-2 control-label">Mata Pelajaran</label>
+                      <label for="inputPassword3" class="col-sm-2 control-label">Materi</label>
                       <div class="col-sm-10">
                         <select class="select2 form-control" name="mapel" required="">
-                            <option selected="selected" disabled="" value="">- Pilih Mata Pelajaran -</option>
+                            <option selected="selected" disabled="" value="">- Pilih Materi -</option>
                             <?php foreach($mapel as $a) { ?>
-                              <option value="<?=$a->id_matapelajaran?>"><?= $a->kode_matapelajaran;?> | <?= $a->nama_matapelajaran;?></option>
+                              <option value="<?=$a->id_materi?>"><?= $a->kode_materi;?> | <?= $a->nama_materi;?></option>
                             <?php } ?>
                         </select>
                       </div>
@@ -229,4 +229,5 @@ $this->load->view('admin/js');
 <?php
 $this->load->view('admin/foot');
 ?>
+
 

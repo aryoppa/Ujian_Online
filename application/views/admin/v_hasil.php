@@ -22,12 +22,12 @@ $this->load->view('admin/sidebar');
                 <form action="" method="get" class="form-horizontal">
                     <div class="box-body">
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Mata Pelajaran</label>
+                            <label class="col-sm-2 control-label">Materi</label>
                             <div class="col-sm-10">
                                 <select class="select2 form-control" name="id" required="">
-                                    <option selected="selected" disabled="">- Pilih Mata Pelajaran -</option>
+                                    <option selected="selected" disabled="">- Pilih Materi -</option>
                                     <?php foreach ($kelas as $a) { ?>
-                                        <option value="<?= $a->id_matapelajaran ?>"><?= $a->kode_matapelajaran; ?> | <?= $a->nama_matapelajaran; ?></option>
+                                        <option value="<?= $a->id_materi ?>"><?= $a->kode_materi; ?> | <?= $a->nama_materi; ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
@@ -67,7 +67,7 @@ $this->load->view('admin/sidebar');
                             <th width="1%">No</th>
                             <th>Nama Siswa</th>                            
                             <th>NIS</th>                            
-                            <th>Mata Pelajaran</th>                            
+                            <th>Materi</th>                            
                             <th>Tanggal Ujian</th>                            
                             <th>Jam Ujian</th>                            
                             <th>Jenis Ujian</th>                            
@@ -85,7 +85,7 @@ $this->load->view('admin/sidebar');
                                 <td><?php echo $no++; ?></td>                              
                                 <td><?php echo $d->nama_siswa; ?></td>                                
                                 <td><?php echo $d->nis; ?></td>                                
-                                <td><?php echo $d->nama_matapelajaran; ?></td>                                
+                                <td><?php echo $d->nama_materi; ?></td>                                
                                 <td><?php echo date('d-m-Y',strtotime($d->tanggal_ujian)); ?></td>
                                 <td><?php echo date('H:i:s',strtotime($d->jam_ujian)); ?></td>
                                 <td><?php echo $d->jenis_ujian; ?></td>

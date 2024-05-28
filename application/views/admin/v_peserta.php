@@ -40,7 +40,7 @@ $this->load->view('admin/sidebar');
                                 <th width="1%">No</th>
                                 <th>Nama Siswa</th>
                                 <th>Kelas</th>
-                                <th>Nama Mata Pelajaran</th>
+                                <th>Nama Materi</th>
                                 <th>Jenis Ujian</th>
                                 <th>Waktu Ujian</th>
                                 <th>Durasi Ujian</th>
@@ -57,7 +57,7 @@ $this->load->view('admin/sidebar');
                                     <td><?php echo $no++; ?></td>
                                     <td><?php echo $d->nama_siswa; ?></td>
                                     <td><?php echo $d->nama_kelas; ?></td>
-                                    <td><?php echo $d->nama_matapelajaran; ?></td>
+                                    <td><?php echo $d->nama_materi; ?></td>
                                     <td><?php echo $d->jenis_ujian; ?></td>
                                     <td><?php echo date('d-m-Y', strtotime($d->tanggal_ujian)); ?> | <?php echo $d->jam_ujian; ?></td>
                                     <td><?php echo $d->durasi_ujian; ?> Menit</td>

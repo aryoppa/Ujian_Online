@@ -18,12 +18,12 @@ class peserta_tambah extends CI_Controller
 			$data['siswa'] = $this->db->query('SELECT * from tb_siswa join tb_kelas where tb_siswa.id_kelas=tb_kelas.id_kelas and tb_kelas.id_kelas="'.$id.'"')->result();
 			
 			$data['kelas']=$this->m_data->get_data('tb_kelas')->result();
-			$data['mapel']=$this->m_data->get_data('tb_matapelajaran')->result();
+			$data['mapel']=$this->m_data->get_data('tb_materi')->result();
 			$data['jenis_ujian'] = $this->m_data->get_data('tb_jenis_ujian')->result();
 		} else {
 			$data['siswa'] = $this->db->query('SELECT * from tb_siswa join tb_kelas where tb_siswa.id_kelas=tb_kelas.id_kelas')->result();
 			$data['kelas']=$this->m_data->get_data('tb_kelas')->result();
-			$data['mapel']=$this->m_data->get_data('tb_matapelajaran')->result();
+			$data['mapel']=$this->m_data->get_data('tb_materi')->result();
 			$data['jenis_ujian'] = $this->m_data->get_data('tb_jenis_ujian')->result();
 		}
 		$this->load->view('admin/v_peserta_tambah',$data);

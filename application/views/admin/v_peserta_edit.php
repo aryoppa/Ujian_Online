@@ -42,9 +42,9 @@ $this->load->view('admin/sidebar');
 
                 <div class="col-sm-10">
                   <select class="select2 form-control" name="mapel" required value="">
-                    <option selected="selected" disabled="">- Pilih Mata Pelajaran Ujian -</option>
-                    <?php foreach ($mapel as $a) { ?>
-                      <option value="<?= $a->id_matapelajaran ?>" <?php if ($p->nama_matapelajaran == $a->nama_matapelajaran) { echo "selected='selected'";} ?>><?= $a->kode_matapelajaran; ?> | <?= $a->nama_matapelajaran; ?></option>
+                    <option selected="selected" disabled="">- Pilih Materi Ujian -</option>
+                    <?php foreach ($nama_materi as $a) { ?>
+                      <option value="<?= $a->id_materi ?>" <?php if ($p->nama_materi == $a->nama_materi) { echo "selected='selected'";} ?>><?= $a->kode_materi; ?> | <?= $a->nama_materi; ?></option>
                     <?php } ?>
                   </select>
                 </div>

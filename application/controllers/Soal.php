@@ -51,9 +51,8 @@ class Soal extends CI_Controller
 			'alasan_3' => $alasan_3,
 			'kunci_alasan' => $kunci_alasan,
 			'pembahasan'	=> $pembahasan,
-			
-			
 		);
+		
 		if ($nama_materi == '' && $pertanyaan == '') {
 			echo($id_materi);
 			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-message alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Maaf, Input Soal Gagal!</h4> Mata Kuliah dan Pertanyaan Soal tidak boleh dikosongkan. ' . $nama_materi . '</div>');

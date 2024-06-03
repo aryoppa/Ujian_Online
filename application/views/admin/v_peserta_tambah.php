@@ -19,47 +19,13 @@ $this->load->view('admin/sidebar');
         </div>
 
                       <!-- /. modal tambah data siswa  -->
-           
-
-
-
-
 
         <div class="col-md-12">
             <div class="box box-success" style="overflow-x: scroll;">
                 <div class="box-header with-border">
               <center><h3 class="box-title">Tambah Peserta Ujian</h3></center>               
-       </div>
-                <!-- /.box-header -->
-                <!-- form start -->
-                <form class="form-horizontal" action="" method="get">
-                  <div class="box-body">
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-2 control-label">Pilih Kelas</label>
-
-                      <div class="col-sm-10">
-                        <select class="select2 form-control" name="kelas" required="">
-                            <option selected="selected" disabled="" value="">- Pilih Kelas -</option>
-                            <?php foreach($kelas as $a) { ?>
-                              <option value="<?=$a->id_kelas?>"><?= $a->nama_kelas;?></option>
-                            <?php } ?>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-2 control-label"></label>
-
-                      <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary btn-flat" title="Pilih Kelas">Pilih Kelas</button>
-                      </div>
-                    </div>
-                   </div>
-                </form>
-            </div>
         </div>
         <!-- /.col-->
-
-
         <div class="col-md-12">
             <div class="box box-success" style="overflow-x: scroll;">
                 <form class="form-horizontal" action="<?=base_url('peserta_tambah/insert_');?>" method="post">
@@ -67,9 +33,9 @@ $this->load->view('admin/sidebar');
                     <div class="form-group">
                       <label for="inputPassword3" class="col-sm-2 control-label">Materi</label>
                       <div class="col-sm-10">
-                        <select class="select2 form-control" name="mapel" required="">
+                        <select class="select2 form-control" name="id_materi" required="">
                             <option selected="selected" disabled="" value="">- Pilih Materi -</option>
-                            <?php foreach($mapel as $a) { ?>
+                            <?php foreach($id_materi as $a) { ?>
                               <option value="<?=$a->id_materi?>"><?= $a->kode_materi;?> | <?= $a->nama_materi;?></option>
                             <?php } ?>
                         </select>
@@ -83,7 +49,7 @@ $this->load->view('admin/sidebar');
                               <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
                             </div>
-                            <input type="text" class="form-control pull-right" id="date" name="tanggal" placeholder="2019-12-30" autocomplete="off" required="">
+                            <input type="text" class="form-control pull-right" id="date" name="tanggal_ujian" placeholder="2019-12-30" autocomplete="off" required="">
                           </div>
                       </div>
                     </div>
@@ -95,14 +61,11 @@ $this->load->view('admin/sidebar');
                             <div class="input-group-addon">
                               <i class="fa fa-clock-o"></i>
                             </div>
-                            <input type="text" class="form-control" id="time" name="jam" required="">
+                            <input type="text" class="form-control" id="time" name="jam_ujian" required="">
                           </div>
                       </div>
                     </div>
-
-                     
-                    
-
+<!-- 
                     <div class="form-group">
                       <label class="col-sm-2 control-label">Jenis Ujian</label>
                       <div class="col-sm-10">
@@ -113,7 +76,7 @@ $this->load->view('admin/sidebar');
                             <?php } ?>
                         </select>
                       </div>
-                    </div>
+                    </div> -->
 
                    
                     <div class="form-group">
@@ -123,11 +86,8 @@ $this->load->view('admin/sidebar');
                         </div>
                     </div>
 
-                    
-                    
                   </div>
                   <!-- /.box-body -->
-                  
                     <div class="box-body">
                       <table id="data" class="table table-bordered table-striped">                    
                         <thead>
@@ -137,21 +97,21 @@ $this->load->view('admin/sidebar');
                             <th>NIS</th>                            
                             <th>Kelas</th>                            
                             <th width="13%">
-                              <input type="checkbox" class="check-all" id="cek-semua"/> Pilih Semua
+                              <input type="checkbox" class="check-all" id="cek_semua"/> Pilih Semua
                             </th>
                           </tr>
                         </thead>
                         <tbody>
                           <?php
                           $no=1;
-                          foreach($siswa as $d) { ?>
+                          foreach($id_siswa as $d) { ?>
                             <tr>
                               <td><?php echo $no++; ?></td>
                               <td><?php echo $d->nama_siswa; ?></td>                                
                               <td><?php echo $d->nis; ?></td>                                              
                               <td><?php echo $d->nama_kelas; ?></td>                                              
                               <td>
-                                <input type="checkbox" name="id[]" value="<?php echo $d->id_siswa; ?>"/>
+                                <input type="checkbox" name="id[]" value="<?php echo htmlspecialchars($d->id_siswa); ?> ?>"/>
                               </td>
                             </tr>
                           <?php } ?>                  
@@ -162,7 +122,7 @@ $this->load->view('admin/sidebar');
                     
                   <div class="box-footer">
                      <a href="<?=base_url('peserta')?>" class="btn btn-default btn-flat"><span class="fa fa-arrow-left"></span> Kembali</a>
-                  <button type="submit" class="btn btn-primary btn-flat" ><span class="fa fa-save"></span> Simpan</button>
+                  <button type="submit" class="btn btn-primary btn-flat" title="Tambah Peserta Ujian" ><span class="fa fa-save"></span> Simpan</button>
                   </div>
                   <!-- /.box-footer -->
                 </form>

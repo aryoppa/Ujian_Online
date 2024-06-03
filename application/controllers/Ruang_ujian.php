@@ -15,7 +15,7 @@ class Ruang_ujian extends CI_Controller
 	{
 		$id_peserta = $this->uri->segment(3);		
 		$id = $this->db->query('SELECT * FROM tb_peserta WHERE id_peserta="' . $id_peserta . '"  ')->row_array();
-		$soal_ujian = $this->db->query('SELECT * FROM tb_soal_ujian WHERE id_matapelajaran="'.$id['id_matapelajaran'].'" ORDER BY RAND()');
+		$soal_ujian = $this->db->query('SELECT * FROM tb_soal_ujian WHERE id_materi="'.$id['id_materi'].'" ORDER BY RAND()');
 		$where = array('id_peserta' => $id_peserta);
 		$data2 = array('status_ujian_ujian' => 1);
 		$this->m_data->update_data($where,$data2,'tb_peserta');
@@ -33,7 +33,7 @@ class Ruang_ujian extends CI_Controller
 	{
 		$id_peserta = $this->input->post('id_peserta');
 		$jumlah 	= $_POST['jumlah_soal'];
-		$id_soal 	= $_POST['soal'];
+		$id_soal 	= $_POST['pertanyaan'];
 		$jawaban 	= $_POST['jawaban'];
 		for ($i = 0; $i < $jumlah; $i++) {
 			$nomor = $id_soal[$i];

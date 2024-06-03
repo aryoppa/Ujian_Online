@@ -47,9 +47,10 @@ $lewat = isset($_SESSION["waktu_start"]) ? time() - $_SESSION["waktu_start"] : $
                                         <td width="1%"><?= $index + 1; ?>.</td>
                                         <td>
                                             <?= $s->pertanyaan; ?>
-                                            <input type='hidden' name='soal[]' value='<?= $s->id_soal_ujian; ?>' />
-                                            <?php foreach (['A', 'B', 'C', 'D', 'E'] as $option): ?>
-                                                <input type="radio" name="jawaban[<?= $s->id_soal_ujian; ?>]" value="<?= $option; ?>" required /> <?= $s->$option; ?><br>
+                                            <br> <!-- Moved to a new line -->
+                                            <input type='hidden' name='pertanyaan[]' value='<?= $s->id_soal_ujian; ?>' />
+                                            <?php foreach (['a', 'b', 'c', 'd', 'e'] as $option): ?>
+                                                <input type="radio" name="jawaban[<?= $s->id_soal_ujian; ?>]" value="<?= $option; ?>" required /> <?= $s->$option; ?><br> <!-- Moved to a new line -->
                                             <?php endforeach; ?>
                                         </td>
                                     </tr>

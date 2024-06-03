@@ -30,9 +30,6 @@ $this->load->view('admin/sidebar');
         </div>
         <!-- /.box-header -->
 
-           
-
-                
                 <div class="box-body" style="overflow-x: scroll;">
                     <table id="data" class="table table-bordered table-striped">
                         <thead>
@@ -41,7 +38,7 @@ $this->load->view('admin/sidebar');
                                 <th>Nama Siswa</th>
                                 <th>Kelas</th>
                                 <th>Nama Materi</th>
-                                <th>Jenis Ujian</th>
+                                <!-- <th>Jenis Ujian</th> -->
                                 <th>Waktu Ujian</th>
                                 <th>Durasi Ujian</th>
                                 <th width="7%">Action</th>
@@ -53,12 +50,12 @@ $this->load->view('admin/sidebar');
                             <?php
                             $no = 1;
                             foreach ($peserta as $d) { ?>
-                                <tr>
-                                    <td><?php echo $no++; ?></td>
+                            <tr>
+                                <td><?php echo $no++; ?></td>
                                     <td><?php echo $d->nama_siswa; ?></td>
                                     <td><?php echo $d->nama_kelas; ?></td>
                                     <td><?php echo $d->nama_materi; ?></td>
-                                    <td><?php echo $d->jenis_ujian; ?></td>
+                                    <!-- <td><?php echo $d->jenis_ujian; ?></td> -->
                                     <td><?php echo date('d-m-Y', strtotime($d->tanggal_ujian)); ?> | <?php echo $d->jam_ujian; ?></td>
                                     <td><?php echo $d->durasi_ujian; ?> Menit</td>
                                     <td>
@@ -96,8 +93,6 @@ $this->load->view('admin/sidebar');
                 </div>
             </div>
             <!-- /.col-->
-
-           
 
             <!-- MODAL CETAK DAFTAR HADIR -->
         </div>

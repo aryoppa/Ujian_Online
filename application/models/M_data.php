@@ -42,13 +42,13 @@ class M_data extends CI_Model
 		$this->db->insert_batch('tb_siswa', $data);
 	}
 
-	public function insertbatch($data)
+	public function insertbatch($data, $table)
 	{
 		$this->db->insert_batch($table, $data);
 	}
 
 	// Fungsi untuk insert lebih dari 1 data
-	public function insert_multiple()
+	public function insert_multiple($data)
 	{
 		$durasi_ujian		= $this->input->post('durasi_ujian');
 				
@@ -58,18 +58,18 @@ class M_data extends CI_Model
 		$count = $this->input->post('id');
 		foreach ($count as $i => $value) {
 			$entri[] = array(
-				'id_siswa' 	=> $this->input->post('id')[$i],
-				'id_matapelajaran' => $this->input->post('mapel'),
-				'id_jenis_ujian'=> $this->input->post('jenis_ujian'),
-				'tanggal_ujian' => $this->input->post('tanggal'),
-				'jam_ujian' 	=> $this->input->post('jam'),
+				'id_siswa' 		=> $this->input->post('id')[$i],
+				'id_materi' 	=> $this->input->post('id_materi'),
+				// 'id_jenis_ujian'=> $this->input->post('id_jenis_ujian'),
+				'tanggal_ujian' => $this->input->post('tanggal_ujian'),
+				'jam_ujian' 	=> $this->input->post('jam_ujian'),
 				'durasi_ujian' 	=> $durasi_ujian,
 				'timer_ujian' 	=> $timer_ujian,
 				'status_ujian' 	=> 1
 
 			);
 		}
-		//return $entri;
+		// return $entri;
 		// echo "<pre>"; print_r($timer_ujian);die;
 		$this->db->insert_batch('tb_peserta', $entri);
 		return true;
@@ -111,7 +111,7 @@ class M_data extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('tb_peserta');
-		$this->db->join('tb_matapelajaran', 'tb_peserta.id_matapelajaran=tb_matapelajaran.id_matapelajaran');
+		$this->db->join('tb_materi', 'tb_peserta.id_materi=tb_materi.id_materi');
 		$this->db->join('tb_siswa', 'tb_peserta.id_siswa=tb_siswa.id_siswa');
 		$this->db->where('tb_siswa.id_siswa', $id_siswa);
 		$query = $this->db->get();

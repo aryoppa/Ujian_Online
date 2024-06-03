@@ -13,29 +13,21 @@ class peserta extends CI_Controller
 		
 	}
 
+	/**
+	 * The index function for the Peserta controller.
+	 * It loads a list of participants (peserta) based on the class ID (id_kelas) and/or student ID (id_siswa).
+	 * If both class ID and student ID are provided, it fetches participants for that specific class and student.
+	 * If only class ID is provided, it fetches all participants in that class.
+	 * If only student ID is provided, it fetches all classes that the student is participating in.
+	 * If neither is provided, it fetches all participants.
+	 * It then loads the 'admin/v_peserta' view, passing the participants, classes, and students data.
+	 */
 	public function index()
 	{
-		if (isset($_GET['idkls']) and isset($_GET['idsiswa'])) {
-			$idkls = $this->input->get('idkls');
-			$idsiswa = $this->input->get('idsiswa');
-			$data['peserta'] = $this->m_peserta->get_peserta($idkls, $idsiswa)->result();
-			$data['kelas'] = $this->m_data->get_data('tb_kelas')->result();
-			$data['siswa'] = $this->m_data->get_data('tb_siswa')->result();
-		} else if (isset($_GET['idkls'])) {
-			$idkls = $this->input->get('idkls');
-			$data['peserta'] = $this->m_peserta->get_peserta2($idkls)->result();
-			$data['kelas'] = $this->m_data->get_data('tb_kelas')->result();
-			$data['siswa'] = $this->m_data->get_data('tb_siswa')->result();
-		} else if (isset($_GET['idsiswa'])) {
-			$idsiswa = $this->input->get('idsiswa');
-			$data['peserta'] = $this->m_peserta->get_peserta3($idsiswa)->result();
-			$data['kelas'] = $this->m_data->get_data('tb_kelas')->result();
-			$data['siswa'] = $this->m_data->get_data('tb_siswa')->result();
-		} else {
-			$data['peserta'] = $this->m_peserta->get_peserta4()->result();
-			$data['kelas'] = $this->m_data->get_data('tb_kelas')->result();
-			$data['siswa'] = $this->m_data->get_data('tb_siswa')->result();
-		}
+		
+		$data['peserta'] = $this->m_peserta->get_peserta4()->result();
+
+		// Load the view with the data
 		$this->load->view('admin/v_peserta', $data);
 	}
 
@@ -61,36 +53,31 @@ class peserta extends CI_Controller
 
 	public function update()
 	{
-		$peserta 		= $this->input->post('peserta');
-		$nama_materi 		= $this->input->post('nama_materi');
-		$tanggal		= $this->input->post('tanggal');
-		$jam			= $this->input->post('jam');
-		$durasi_ujian		= $this->input->post('durasi_ujian');
-		$jenis			= $this->input->post('jenis');
-		$timer_ujian 		= $durasi_ujian*60;
+		$id_peserta 	= $this->input->post('id_peserta');
+		$nama_materi 	= $this->input->post('nama_materi');
+		$tanggal_ujian	= $this->input->post('tanggal_ujian');
+		$jam_ujian		= $this->input->post('jam_ujian');
+		$durasi_ujian	= $this->input->post('durasi_ujian');
+		$id_jenis_ujian	= $this->input->post('id_jenis_ujian');
+		$timer_ujian 	= $durasi_ujian*60;
 		$where  = array('id_peserta' => $this->input->post('id'));
 
-		if ($peserta == '' || $mapel == '' || $tanggal == '' || $jam == '' || $durasi_ujian == '' || $jenis == '') {
+	
+		$data = array(
+			'id_siswa'			=> $peserta,
+			'id_materi'			=> $id_materi,
+			'id_jenis_ujian'	=> $id_jenis_ujian,
+			'tanggal_ujian'		=> $tanggal_ujian,
+			'jam_ujian'			=> $jam_ujian,
+			'durasi_ujian'		=> $durasi_ujian,
+			'timer_ujian'		=> $timer_ujian,
+			'status_ujian'		=> 1
 			
-			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i> semua field harus diisi semua !</h4></div>');
-			redirect(base_url('peserta'));
-		} else {
-			$data = array(
-				'id_siswa'		=> $peserta,
-				'id_matapelajaran'		=> $mapel,
-				'id_jenis_ujian'	=> $jenis,
-				'tanggal_ujian'		=> $tanggal,
-				'jam_ujian'			=> $jam,
-				'durasi_ujian'			=> $durasi_ujian,
-				'timer_ujian'			=> $timer_ujian,
-				'status_ujian'			=> 1
-				
-			);
+		);
 
-			$this->m_data->update_data($where, $data, 'tb_peserta');
-			$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i> Data berhasil di Update.</h4></div>');
-			redirect(base_url('peserta'));
-		}
+		$this->m_data->update_data($where, $data, 'tb_peserta');
+		$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i> Data berhasil di Update.</h4></div>');
+		redirect(base_url('peserta'));
 	}
 
 	

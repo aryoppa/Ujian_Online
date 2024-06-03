@@ -42,7 +42,7 @@ $this->load->view('siswa/sidebar');
                         foreach($hasil as $d) { ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>                              
-                                <td><?php echo $d->nama_matapelajaran; ?></td>                                
+                                <td><?php echo $d->nama_materi; ?></td>                                
                                 <td><?php echo date('d-m-Y',strtotime($d->tanggal_ujian)); ?></td>                               
                                 <td><?php echo date('H:i:s',strtotime($d->jam_ujian)); ?></td>                                
                                 <td>

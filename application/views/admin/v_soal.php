@@ -85,9 +85,15 @@ $this->load->view('admin/sidebar');
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Tulis Soal Ujian</label>
                                 <div class="col-sm-10">
-                                    <textarea  class="pertanyaan" name="pertanyaan" required></textarea>
+                                    <textarea  class="soal" name="pertanyaan" rows="10" cols="80" required></textarea>
                                 </div>
                             </div>
+                            <!-- <div class="form-group">
+                                <label class="col-sm-2 control-label">Upload Gambar Soal Ujian</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control-file" name="gambar_soal">
+                                </div>
+                            </div> -->
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Jawaban A</label>
                                 <div class="col-sm-10">
@@ -121,7 +127,7 @@ $this->load->view('admin/sidebar');
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Kunci Jawaban</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" name="kunci" required>
+                                    <select class="form-control" name="kunci_jawaban" required>
                                         <option selected="selected" disabled="" value="">- Pilih Kunci Jawaban -</option>
                                         <option>A</option>
                                         <option>B</option>
@@ -150,6 +156,18 @@ $this->load->view('admin/sidebar');
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">Alasan 4</label>
+                                <div class="col-sm-10">
+                                    <textarea rows="2" style="width: 100%" name="alasan_4" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Alasan 5</label>
+                                <div class="col-sm-10">
+                                    <textarea rows="2" style="width: 100%" name="alasan_5" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label">Kunci Alasan</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="kunci_alasan" required>
@@ -157,13 +175,15 @@ $this->load->view('admin/sidebar');
                                         <option value="alasan_1">alasan 1</option>
                                         <option value="alasan_2">alasan 2</option>
                                         <option value="alasan_3">alasan 3</option>
+                                        <option value="alasan_4">alasan 4</option>
+                                        <option value="alasan_5">alasan 5</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Tulis Pembahasan</label>
                                 <div class="col-sm-10">
-                                    <textarea  class="pembahasan" name="pembahasan" required></textarea>
+                                    <textarea  class="soal" name="pembahasan" rows="10" cols="80" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">

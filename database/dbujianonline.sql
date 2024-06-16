@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2022 at 04:04 PM
+-- Generation Time: Jun 13, 2024 at 11:04 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.3.33
 
@@ -164,20 +164,20 @@ INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_matapelajaran`
+-- Table structure for table `tb_materi`
 --
 
-CREATE TABLE `tb_matapelajaran` (
-  `id_matapelajaran` int(11) NOT NULL,
-  `kode_matapelajaran` varchar(10) NOT NULL,
-  `nama_matapelajaran` varchar(50) NOT NULL
+CREATE TABLE `tb_materi` (
+  `id_materi` int(11) NOT NULL,
+  `kode_materi` varchar(10) NOT NULL,
+  `nama_materi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_matapelajaran`
+-- Dumping data for table `tb_materi`
 --
 
-INSERT INTO `tb_matapelajaran` (`id_matapelajaran`, `kode_matapelajaran`, `nama_matapelajaran`) VALUES
+INSERT INTO `tb_materi` (`id_materi`, `kode_materi`, `nama_materi`) VALUES
 (17, '071', 'Bahasa Indonesia'),
 (18, '072', 'Matematika'),
 (19, '073', 'Bahasa Inggris'),
@@ -197,7 +197,7 @@ INSERT INTO `tb_matapelajaran` (`id_matapelajaran`, `kode_matapelajaran`, `nama_
 
 CREATE TABLE `tb_peserta` (
   `id_peserta` int(11) NOT NULL,
-  `id_matapelajaran` int(11) NOT NULL,
+  `id_materi` int(11) NOT NULL,
   `id_siswa` int(11) NOT NULL,
   `id_jenis_ujian` int(11) NOT NULL,
   `tanggal_ujian` date NOT NULL,
@@ -215,24 +215,7 @@ CREATE TABLE `tb_peserta` (
 -- Dumping data for table `tb_peserta`
 --
 
-INSERT INTO `tb_peserta` (`id_peserta`, `id_matapelajaran`, `id_siswa`, `id_jenis_ujian`, `tanggal_ujian`, `jam_ujian`, `durasi_ujian`, `timer_ujian`, `status_ujian`, `status_ujian_ujian`, `benar`, `salah`, `nilai`) VALUES
-(2, 6, 39, 1, '2020-05-02', '09:05:00', 10, 600, 2, 2, '3', '0', '100'),
-(4, 6, 40, 1, '2020-05-03', '16:30:00', 5, 300, 1, 0, '', '', ''),
-(5, 6, 41, 1, '2020-05-03', '17:45:00', 2, 120, 1, 0, '', '', ''),
-(7, 6, 38, 1, '2020-05-05', '06:30:00', 2, 120, 2, 2, '1', '1', '50'),
-(8, 6, 2, 1, '2020-06-13', '15:46:00', 5, 300, 2, 2, '0', '0', '0'),
-(9, 6, 3, 1, '2020-06-13', '15:49:00', 5, 300, 2, 2, '0', '1', '0'),
-(10, 6, 5, 1, '2020-06-17', '21:30:00', 10, 600, 2, 2, '2', '0', '100'),
-(11, 6, 6, 1, '2020-06-23', '21:45:00', 3, 180, 1, 0, '', '', ''),
-(12, 8, 7, 3, '2020-06-24', '07:15:00', 10, 600, 1, 0, '', '', ''),
-(13, 8, 8, 1, '2020-06-27', '15:15:00', 10, 600, 2, 2, '1', '1', '50'),
-(14, 8, 5, 1, '2020-06-29', '09:30:00', 10, 600, 2, 2, '1', '3', '25'),
-(15, 8, 9, 1, '2020-06-28', '17:30:00', 10, 600, 2, 2, '3', '0', '100'),
-(16, 8, 7, 3, '2020-06-28', '20:20:00', 10, 600, 1, 0, '', '', ''),
-(17, 8, 10, 3, '2020-06-28', '20:20:00', 10, 600, 2, 2, '3', '1', '75'),
-(18, 8, 5, 1, '2020-06-29', '09:30:00', 10, 600, 1, 0, '', '', ''),
-(19, 10, 5, 1, '2020-06-30', '23:30:00', 10, 600, 2, 2, '0', '0', '0'),
-(20, 10, 4, 1, '2020-07-31', '07:30:00', 2, 120, 1, 0, '', '', ''),
+INSERT INTO `tb_peserta` (`id_peserta`, `id_materi`, `id_siswa`, `id_jenis_ujian`, `tanggal_ujian`, `jam_ujian`, `durasi_ujian`, `timer_ujian`, `status_ujian`, `status_ujian_ujian`, `benar`, `salah`, `nilai`) VALUES
 (23, 18, 4, 1, '2022-11-07', '22:00:00', 15, 900, 1, 0, '', '', ''),
 (24, 18, 5, 1, '2022-11-07', '22:00:00', 15, 900, 2, 2, '4', '1', '80'),
 (25, 18, 11, 1, '2022-11-07', '22:00:00', 10, 600, 2, 2, '2', '3', '40'),
@@ -273,37 +256,43 @@ INSERT INTO `tb_siswa` (`id_siswa`, `id_kelas`, `nama_siswa`, `nis`, `username`,
 
 CREATE TABLE `tb_soal_ujian` (
   `id_soal_ujian` int(11) NOT NULL,
-  `id_matapelajaran` int(11) NOT NULL,
+  `id_materi` int(11) NOT NULL,
   `pertanyaan` text NOT NULL,
+  `gambar_soal` text NOT NULL,
   `a` text NOT NULL,
   `b` text NOT NULL,
   `c` text NOT NULL,
   `d` text NOT NULL,
   `e` text NOT NULL,
-  `kunci_jawaban` varchar(2) NOT NULL
+  `kunci_jawaban` varchar(2) NOT NULL,
+  `alasan_1` text NOT NULL,
+  `alasan_2` text NOT NULL,
+  `alasan_3` text NOT NULL,
+  `alasan_4` text NOT NULL,
+  `alasan_5` text NOT NULL,
+  `kunci_alasan` text NOT NULL,
+  `pembahasan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_soal_ujian`
 --
 
-INSERT INTO `tb_soal_ujian` (`id_soal_ujian`, `id_matapelajaran`, `pertanyaan`, `a`, `b`, `c`, `d`, `e`, `kunci_jawaban`) VALUES
-(1, 6, '<p>1+1 =</p>\r\n', '0', '1', '2', '3', '4', 'C'),
-(2, 6, '<p>2-1-1=</p>\r\n', '0', '1', '2', '3', '4', 'A'),
-(3, 5, '<p>Penulisan kalimat yang benar adalah?</p>\r\n', 'kota bandung', 'KOTA BANDUNG', 'Kota Bandung', 'kota Bandung', 'Kota bandung', 'C'),
-(4, 7, '<p>Me artinya?</p>\r\n', 'saya', 'kamu', 'dia', 'mereka', 'kita', 'A'),
-(6, 8, '<p>Aku dalam bahasa sunda artinya</p>\r\n', 'abdi', 'maneh', 'naon', 'duka', 'teuing', 'A'),
-(7, 8, '<p>sunda berasal dari suku</p>\r\n', 'sunda', 'jawa', 'batak', 'madura', 'cina', 'A'),
-(8, 8, '<p>ngambek artinya</p>\r\n', 'naon', 'kulan', 'punteu', 'marah', 'duka', 'D'),
-(9, 8, '<p>aing bahasa indonesia nya adalah</p>\r\n', 'aku', 'kamu', 'maneh', 'naon', 'dekah', 'A'),
-(10, 6, '<p>1+1+1+</p>\r\n', '1', '2', '3', '4', '5', 'C'),
-(11, 10, '<p>zdas</p>\r\n', '1', '2', '3', '4', '4', 'C'),
-(12, 10, '<p>wefew</p>\r\n', 'rsr', 'dt', 'dt', 'd', 'td', 'B'),
-(16, 18, '<p>Jika diketahui &radic;20 + &radic;x + &radic;125 = 10&radic;5, maka nilai x + 5 ialah&hellip;.</p>\r\n', '30', '40', '50', '80', '90', 'C'),
-(17, 18, '<p>Nilai &radic;6 + &radic;24 + &radic;15 x &radic;135 = &hellip;</p>\r\n', '87', '77', '67', '57', '47', 'D'),
-(18, 18, '<p>Empat tahun yang telah lalu usia Siska empat kali daro usia Tuti. Empat tahun yang akan datang usia Siska dua kali dari usia Tuti, usia Tuti dan Siska dan masing-masing enam tahun mendatang adalah&hellip;.tahun</p>\r\n', ' 8 dan 20', '8 dan 12', '14 dan 26', '14 dan 18', '8 dan 5', 'B'),
-(19, 18, '<p>Berapa hasil dari perhitungan ini:&nbsp;<em>3log12 + 3log24 &ndash; 3log1/27&nbsp;</em>=&hellip;&hellip;</p>\r\n', '1', '2', '3', '4', '5', 'B'),
-(20, 18, '<p>Nilai maksimum dari. 20 x + 30y, yang dapat dipenuhi sistem pertidaksamaan dari&nbsp;<em>x + y&nbsp;<u>&lt;</u>6, x + 2y&nbsp;<u>&lt;</u>8, x&nbsp;<u>&gt;</u>&nbsp;0 serta y&nbsp;<u>&gt;</u>&nbsp;0&nbsp;</em>ialah&hellip;.</p>\r\n', '110', '130', '140', '150', '170', 'C');
+INSERT INTO `tb_soal_ujian` (`id_soal_ujian`, `id_materi`, `pertanyaan`, `gambar_soal`, `a`, `b`, `c`, `d`, `e`, `kunci_jawaban`, `alasan_1`, `alasan_2`, `alasan_3`, `alasan_4`, `alasan_5`, `kunci_alasan`, `pembahasan`) VALUES
+(1, 18, '<p>1+1 =</p>\r\n', '', '0', '1', '2', '3', '4', 'C', 'asdas', 'aryo', 'sadasd', 'asdasf', 'fsfsfwfw', 'alasan_1', 'asda xca'),
+(4, 7, '<p>Me artinya?</p>\r\n', '', 'saya', 'kamu', 'dia', 'mereka', 'kita', 'A', '', '', '', '', '', '', ''),
+(6, 8, '<p>Aku dalam bahasa sunda artinya</p>\r\n', '', 'abdi', 'maneh', 'naon', 'duka', 'teuing', 'A', '', '', '', '', '', '', ''),
+(7, 8, '<p>sunda berasal dari suku</p>\r\n', '', 'sunda', 'jawa', 'batak', 'madura', 'cina', 'A', '', '', '', '', '', '', ''),
+(8, 8, '<p>ngambek artinya</p>\r\n', '', 'naon', 'kulan', 'punteu', 'marah', 'duka', 'D', '', '', '', '', '', '', ''),
+(9, 8, '<p>aing bahasa indonesia nya adalah</p>\r\n', '', 'aku', 'kamu', 'maneh', 'naon', 'dekah', 'A', '', '', '', '', '', '', ''),
+(10, 6, '<p>1+1+1+</p>\r\n', '', '1', '2', '3', '4', '5', 'C', '', '', '', '', '', '', ''),
+(11, 10, '<p>zdas</p>\r\n', '', '1', '2', '3', '4', '4', 'C', '', '', '', '', '', '', ''),
+(12, 10, '<p>wefew</p>\r\n', '', 'rsr', 'dt', 'dt', 'd', 'td', 'B', '', '', '', '', '', '', ''),
+(16, 18, '<p>Jika diketahui &radic;20 + &radic;x + &radic;125 = 10&radic;5, maka nilai x + 5 ialah&hellip;.</p>\r\n', '', '30', '40', '50', '80', '90', 'C', '', '', '', '', '', '', ''),
+(17, 18, '<p>Nilai &radic;6 + &radic;24 + &radic;15 x &radic;135 = &hellip;</p>\r\n', '', '87', '77', '67', '57', '47', 'D', '', '', '', '', '', '', ''),
+(18, 18, '<p>Empat tahun yang telah lalu usia Siska empat kali daro usia Tuti. Empat tahun yang akan datang usia Siska dua kali dari usia Tuti, usia Tuti dan Siska dan masing-masing enam tahun mendatang adalah&hellip;.tahun</p>\r\n', '', ' 8 dan 20', '8 dan 12', '14 dan 26', '14 dan 18', '8 dan 5', 'B', '', '', '', '', '', '', ''),
+(19, 18, '<p>Berapa hasil dari perhitungan ini:&nbsp;<em>3log12 + 3log24 &ndash; 3log1/27&nbsp;</em>=&hellip;&hellip;</p>\r\n', '', '1', '2', '3', '4', '5', 'B', '', '', '', '', '', '', ''),
+(20, 18, '<p>Nilai maksimum dari. 20 x + 30y, yang dapat dipenuhi sistem pertidaksamaan dari&nbsp;<em>x + y&nbsp;<u>&lt;</u>6, x + 2y&nbsp;<u>&lt;</u>8, x&nbsp;<u>&gt;</u>&nbsp;0 serta y&nbsp;<u>&gt;</u>&nbsp;0&nbsp;</em>ialah&hellip;.</p>\r\n', '', '110', '130', '140', '150', '170', 'C', '', '', '', '', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -342,17 +331,17 @@ ALTER TABLE `tb_kelas`
   ADD PRIMARY KEY (`id_kelas`);
 
 --
--- Indexes for table `tb_matapelajaran`
+-- Indexes for table `tb_materi`
 --
-ALTER TABLE `tb_matapelajaran`
-  ADD PRIMARY KEY (`id_matapelajaran`);
+ALTER TABLE `tb_materi`
+  ADD PRIMARY KEY (`id_materi`);
 
 --
 -- Indexes for table `tb_peserta`
 --
 ALTER TABLE `tb_peserta`
   ADD PRIMARY KEY (`id_peserta`),
-  ADD KEY `id_matakuliah` (`id_matapelajaran`),
+  ADD KEY `id_matakuliah` (`id_materi`),
   ADD KEY `id_mahasiswa` (`id_siswa`),
   ADD KEY `id_jenis_ujian` (`id_jenis_ujian`);
 
@@ -369,7 +358,7 @@ ALTER TABLE `tb_siswa`
 --
 ALTER TABLE `tb_soal_ujian`
   ADD PRIMARY KEY (`id_soal_ujian`),
-  ADD KEY `id_matakuliah` (`id_matapelajaran`);
+  ADD KEY `id_matakuliah` (`id_materi`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -400,10 +389,10 @@ ALTER TABLE `tb_kelas`
   MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tb_matapelajaran`
+-- AUTO_INCREMENT for table `tb_materi`
 --
-ALTER TABLE `tb_matapelajaran`
-  MODIFY `id_matapelajaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+ALTER TABLE `tb_materi`
+  MODIFY `id_materi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tb_peserta`

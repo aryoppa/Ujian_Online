@@ -26,7 +26,6 @@ $this->load->view('admin/sidebar');
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-1 col-sm-10">
-                                <a href="<?= base_url('soal'); ?>" class="btn btn-default btn-flat"><i class="fa fa-refresh"></i> Refresh</a>
                                 <button type="submit" class="btn btn-primary btn-flat" title="Filter Data Soal Ujian"><i class="fa fa-filter"></i> Filter</button>
                             </div>
                         </div>
@@ -47,6 +46,7 @@ $this->load->view('admin/sidebar');
                             <th>SOAL UJIAN</th>
                             <th>KUNCI JAWABAN</th>
                             <th>ALASAN</th>
+                            <th>KUNCI ALASAN</th>
                             <th>PEMBAHASAN</th>
                             <th>AKSI</th>
                         </tr>
@@ -68,13 +68,14 @@ $this->load->view('admin/sidebar');
                                 </td>
                                 <td><strong><?= $d->kunci_jawaban; ?></strong></td>
                                 <td><ol type="A">
-                                        <?php foreach (['alasan_1', 'alasan_2', 'alasan_3'] as $option): ?>
-                                            <li<?= $d->kunci_alasan == $option ? ' style="font-weight:bold;"' : ''; ?>>
+                                        <?php foreach (['alasan_1', 'alasan_2', 'alasan_3', 'alasan_4', 'alasan_5'] as $option): ?>
+                                            <li<?= $d->kunci_alasan == strtoupper($option) ? ' style="font-weight:bold;"' : ''; ?>>
                                                 <?= $d->$option; ?>
                                             </li>
                                         <?php endforeach; ?>
                                     </ol>
                                 </td>
+                                <td><strong><?= $d->kunci_alasan; ?></strong></td>
                                 <td><?= $d->pembahasan; ?></td>
                                 <td>
                                     <a href="<?= base_url() . 'soal_ujian/edit/' . $d->id_soal_ujian; ?>" class="btn btn-xs btn-success" title="Ubah"><i class="glyphicon glyphicon-edit"></i></a>

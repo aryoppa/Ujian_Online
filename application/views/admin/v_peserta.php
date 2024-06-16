@@ -59,23 +59,17 @@ $this->load->view('admin/sidebar');
                                     <td><?php echo date('d-m-Y', strtotime($d->tanggal_ujian)); ?> | <?php echo $d->jam_ujian; ?></td>
                                     <td><?php echo $d->durasi_ujian; ?> Menit</td>
                                     <td>
-                                        <?php if ($d->nilai == null) { ?>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-warning btn-flat btn-xs">Action</button>
-                                                <button type="button" class="btn btn-warning btn-xs btn-flat dropdown-toggle" data-toggle="dropdown">
-                                                    <span class="caret"></span>
-                                                    <span class="sr-only">Toggle Dropdown</span>
-                                                </button>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <li><a href="<?= base_url() . 'peserta/edit/' . $d->id_peserta; ?>">Edit Data</a></li>
-                                                    <li><a href="<?= base_url() . 'peserta/hapus/' . $d->id_peserta; ?>" onclick="return confirm('Apakah yakin data peserta ini di hapus?')">Hapus Data</a></li>
-                                                </ul>
-                                            </div>
-                                        <?php } else {
-                                            echo '-';
-                                        }
-                                         ?>
-                                        
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-warning btn-flat btn-xs">Action</button>
+                                            <button type="button" class="btn btn-warning btn-xs btn-flat dropdown-toggle" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="<?= base_url() . 'peserta/edit/' . $d->id_peserta; ?>">Edit Data</a></li>
+                                                <li><a href="<?= base_url() . 'peserta/hapus/' . $d->id_peserta; ?>" onclick="return confirm('Apakah yakin data peserta ini di hapus?')">Hapus Data</a></li>
+                                            </ul>
+                                        </div>
                                     </td>
                                     <td>
                                         <?php if ($d->status_ujian == "1") {

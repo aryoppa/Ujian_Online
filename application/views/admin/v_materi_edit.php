@@ -18,27 +18,27 @@ $this->load->view('admin/sidebar');
                 <center><h3 class="box-title">Edit Data</h3></center>
             </div>
             <!-- /.box-header -->
-            <?php foreach($mapel as $a) { ?>
+            <?php foreach($materi as $a) { ?>
             <!-- form start -->
-            <form action="<?=base_url('matapelajaran/update');?>" method="post" class="form-horizontal">
+            <form action="<?=base_url('materi/update');?>" method="post" class="form-horizontal">
               <div class="box-body">
                 <div class="form-group">
-                  <label class="col-sm-2 control-label">Kode Mata Pelajaran</label>
-                  <input type="hidden" name="id" value="<?= $a->id_matapelajaran;?>">
+                  <label class="col-sm-2 control-label">Kode Materi</label>
+                  <input type="hidden" name="id" value="<?= $a->id_materi;?>">
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="kode" value="<?= $a->kode_matapelajaran;?>" required>
+                    <input type="text" class="form-control" name="kode" value="<?= $a->kode_materi;?>" required>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-2 control-label">Nama Mata Pelajaran</label>
+                  <label class="col-sm-2 control-label">Nama Materi</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="nama" value="<?= $a->nama_matapelajaran;?>" required>
+                    <input type="text" class="form-control" name="nama" value="<?= $a->nama_materi;?>" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-2 control-label"></label>
                   <div class="col-sm-10">
-                    <a href="<?=base_url('matapelajaran')?>" class="btn btn-default btn-flat"><span class="fa fa-arrow-left"></span> Batal</a>
+                    <a href="<?=base_url('materi')?>" class="btn btn-default btn-flat"><span class="fa fa-arrow-left"></span> Batal</a>
                   <button type="submit" class="btn btn-primary btn-flat" title="Simpan Data Pengawas"><span class="fa fa-save"></span> Simpan</button>
                   </div>
                 </div>

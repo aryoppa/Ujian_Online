@@ -29,10 +29,12 @@ class Soal extends CI_Controller
 		$c					= $this->input->post('c');
 		$d					= $this->input->post('d');
 		$e					= $this->input->post('e');
-		$kunci				= $this->input->post('kunci');
+		$kunci_jawaban		= $this->input->post('kunci_jawaban');
 		$alasan_1			= $this->input->post('alasan_1');
 		$alasan_2			= $this->input->post('alasan_2');
 		$alasan_3			= $this->input->post('alasan_3');
+		$alasan_4			= $this->input->post('alasan_4');
+		$alasan_5			= $this->input->post('alasan_5');
 		$kunci_alasan		= $this->input->post('kunci_alasan');
 		$pembahasan			= $this->input->post('pembahasan');
 		
@@ -45,10 +47,12 @@ class Soal extends CI_Controller
 			'c' => $c,
 			'd' => $d,
 			'e' => $e,
-			'kunci_jawaban' => $kunci,
+			'kunci_jawaban' => $kunci_jawaban,
 			'alasan_1' => $alasan_1,
 			'alasan_2' => $alasan_2,
 			'alasan_3' => $alasan_3,
+			'alasan_4' => $alasan_4,
+			'alasan_5' => $alasan_5,
 			'kunci_alasan' => $kunci_alasan,
 			'pembahasan'	=> $pembahasan,
 		);
@@ -60,7 +64,7 @@ class Soal extends CI_Controller
 		} else {
 			$this->m_data->insert_data($data, 'tb_soal_ujian');
 			$this->session->set_flashdata('message', '<div class="alert alert-success alert-message alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i> Selamat, Soal berhasil dibuat!</h4>untuk melihat soal tersebut bisa anda lihat di menu <b>Daftar Soal ujian</b>.</div>');
-			redirect(base_url('soal'));
-		}	
+			redirect(base_url('soal_ujian'));
+		}		
 	}
 }

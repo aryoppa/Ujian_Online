@@ -18,7 +18,7 @@ $this->load->view('admin/sidebar');
         <!-- Default box -->
         <div class="box box-success" style="overflow-x: scroll;">
             <div class="box-header">
-                <center><h3 class="box-title">Data Mata pelajaran</h3></center><p>
+                <center><h3 class="box-title">Data Materi</h3></center><p>
                   <a href="<?=base_url('soal_ujian')?>" class="btn btn-default btn-flat"><span class="fa fa-arrow-left"></span> Kembali</a>
                 <button type="button" class="btn btn-primary btn-flat" data-toggle="modal" data-target="#modal-default"><span class="fa fa-plus"></span> Tambah</button>
             </div>
@@ -29,18 +29,18 @@ $this->load->view('admin/sidebar');
                         <tr>
                             <th width="1%">No</th>
                             <th>Kode</th>
-                            <th>Nama Mata Pelajaran</th>                          
+                            <th>Nama Materi</th>                          
                             <th width="12%"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $no=1;
-                        foreach($mapel as $m) { ?>
+                        foreach($materi as $m) { ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
-                                <td><?php echo $m->kode_matapelajaran; ?></td>
-                                <td><?php echo $m->nama_matapelajaran; ?></td>
+                                <td><?php echo $m->kode_materi; ?></td>
+                                <td><?php echo $m->nama_materi; ?></td>
                                 <td>
                                   <div class="btn-group">
                                     <button type="button" class="btn btn-warning btn-flat btn-xs">Action</button>
@@ -49,8 +49,8 @@ $this->load->view('admin/sidebar');
                                       <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
-                                      <li><a href="<?= base_url().'matapelajaran/edit/'.$m->id_matapelajaran; ?>">Edit Data</a></li>
-                                      <li><a href="<?= base_url().'matapelajaran/hapus/'.$m->id_matapelajaran; ?>" onclick="return confirm('Apakah yakin data peserta ini di hapus?')">Hapus Data</a></li>
+                                      <li><a href="<?= base_url().'materi/edit/'.$m->id_materi; ?>">Edit Data</a></li>
+                                      <li><a href="<?= base_url().'materi/hapus/'.$m->id_materi; ?>" onclick="return confirm('Apakah yakin data peserta ini di hapus?')">Hapus Data</a></li>
                                     </ul>
                                   </div>
                                 </td>
@@ -72,18 +72,18 @@ $this->load->view('admin/sidebar');
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-       <center> <h4 class="modal-title">Tambah Data Mata Pelajaran</h4></center>
+       <center> <h4 class="modal-title">Tambah Data Materi</h4></center>
       </div>
       <!-- /.form dengan modal -->
-      <form method="post" action="<?php echo base_url().'matapelajaran/mapel_aksi'; ?>">
+      <form method="post" action="<?php echo base_url().'materi/mapel_aksi'; ?>">
         <div class="modal-body">
           <div class="form-group">
-            <label class="font-weight-bold">Kode Mata Pelajaran </label>
-            <input type="text" class="form-control" name="kode" placeholder="Masukkan Kode Mata Pelajaran" required="">
+            <label class="font-weight-bold">Kode Materi </label>
+            <input type="text" class="form-control" name="kode" placeholder="Masukkan Kode Materi" required="">
           </div>
           <div class="form-group">
-            <label class="font-weight-bold">Nama Mata Pelajaran</label>
-            <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Mata Pelajaran" required="">
+            <label class="font-weight-bold">Nama Materi</label>
+            <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Materi" required="">
           </div>
         </div>
         <div class="modal-footer">

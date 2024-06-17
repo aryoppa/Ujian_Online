@@ -34,7 +34,6 @@ class peserta_tambah extends CI_Controller
 		$id_materi 			= $this->input->post('id_materi');
 		$tanggal_ujian		= $this->input->post('tanggal_ujian');
 		$jam_ujian			= $this->input->post('jam_ujian');
-		// $jenis_ujian		= $this->input->post('jenis_ujian');
 		$durasi_ujian		= $this->input->post('durasi_ujian');
 		$id_siswa			= $this->input->post('id');
 
@@ -42,22 +41,17 @@ class peserta_tambah extends CI_Controller
 			'id_materi'		=> $id_materi,
 			'tanggal_ujian'	=> $tanggal_ujian,
 			'jam_ujian'		=> $jam_ujian,
-			// 'jenis_ujian'	=> $jenis_ujian,
 			'durasi_ujian'	=> $durasi_ujian,
 			'id_siswa'		=> $id_siswa,
 		);
 		
-		if ($id_materi == '' || $tanggal_ujian == '' || $jam_ujian == '' || $durasi_ujian == '' || $jenis_ujian == '') {
+		if ($id_materi == '' || $tanggal_ujian == '' || $jam_ujian == '' || $durasi_ujian == '') {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i> Input Data Peserta Gagal !</h4> Cek kembali data yang diinputkan.</div>');
 			redirect(base_url('peserta_tambah'));
 		} else {
-			echo "ini datanya " . print_r($data, true);
-
-			// $this->m_data->insert_data($data, 'tb_peserta');
 			$this->m_data->insert_multiple($data);
-			echo "ini echo nya ";
 			$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i> Peserta Ujian berhasil dibuat !</h4></div>');
-			redirect(base_url('peserta_tambah'));
+			redirect(base_url('peserta'));
 		}
 	}	
 }

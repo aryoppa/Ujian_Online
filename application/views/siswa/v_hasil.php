@@ -31,8 +31,8 @@ $this->load->view('siswa/sidebar');
                             <th> Pelajaran</th>                            
                             <th> Tanggal Ujian</th>                            
                             <th> Jam </th>                            
-                            <th> Benar</th>                            
-                            <th> Salah</th>                            
+                            <th> Jawaban Benar</th>                            
+                            <th> Alasan Benar</th>                            
                             <th> Nilai</th>
                         </tr>
                     </thead>
@@ -47,19 +47,19 @@ $this->load->view('siswa/sidebar');
                                 <td><?php echo date('H:i:s',strtotime($d->jam_ujian)); ?></td>                                
                                 <td>
                                     <?php
-                                    if($d->benar == ''){
+                                    if($d->jawaban_benar == ''){
                                         echo "<span class='btn btn-xs btn-warning'>Belum Ujian</span>";
                                     }else {
-                                        echo $d->benar;
+                                        echo $d->jawaban_benar;
                                     }
                                     ?>
                                 </td>                                
                                 <td>
                                     <?php
-                                    if($d->salah == ''){
+                                    if($d->alasan_benar == ''){
                                         echo "<span class='btn btn-xs btn-warning'>Belum Ujian</span>";
                                     }else {
-                                        echo $d->salah;
+                                        echo $d->alasan_benar;
                                     }
                                     ?>
                                 </td>

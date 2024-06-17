@@ -21,7 +21,6 @@ class M_hasil extends CI_Model
         $this->db->select('*');
         $this->db->from('tb_peserta');
         $this->db->join('tb_materi', 'tb_peserta.id_materi = tb_materi.id_materi');
-        $this->db->join('tb_jenis_ujian', 'tb_peserta.id_jenis_ujian = tb_jenis_ujian.id_jenis_ujian');
         $this->db->join('tb_siswa', 'tb_peserta.id_siswa = tb_siswa.id_siswa');
         $this->db->order_by('nilai', 'DESC');
         $query = $this->db->get();

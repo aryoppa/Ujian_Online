@@ -58,6 +58,7 @@ $this->load->view('admin/sidebar');
                                 <td><?= $d->nama_materi; ?></td>
                                 <td>
                                     <?= $d->pertanyaan; ?>
+                                    <img src="<?= base_url('uploads/'.$d->image) ?>" alt="Image">
                                     <ol type="A">
                                         <?php foreach (['a', 'b', 'c', 'd', 'e'] as $option): ?>
                                             <li<?= $d->kunci_jawaban == strtoupper($option) ? ' style="font-weight:bold;"' : ''; ?>>

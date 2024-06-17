@@ -1,7 +1,7 @@
 <?php
 $this->load->view('ujian/head');
 $this->load->view('ujian/topbar');
-$lewat = isset($_SESSION["waktu_start"]) ? time() - $_SESSION["waktu_start"] : $_SESSION["waktu_start"] = time();
+// $lewat = isset($_SESSION["waktu_start"]) ? time() - $_SESSION["waktu_start"] : $_SESSION["waktu_start"] = time();
 ?>
 
 <style>
@@ -20,7 +20,7 @@ $lewat = isset($_SESSION["waktu_start"]) ? time() - $_SESSION["waktu_start"] : $
 
 <section class="content">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-12">
         <div class="box box-success">
             <div class="box-header text-center">
               <h4 class="box-title">Waktu Anda</h4>
@@ -30,12 +30,12 @@ $lewat = isset($_SESSION["waktu_start"]) ? time() - $_SESSION["waktu_start"] : $
             </div>
         </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-12">
         <div class="box box-success box-solid">
             <div class="box-header with-border text-center">
                <h3 class="box-title">Soal Ujian</h3>
             </div>
-            <div class="box-body" style="overflow-y: scroll;height: 525px;">
+            <div class="box-body" style="overflow-y: scroll; height: 100vh; width: 100%;">
                 <form id="formSoal" role="form" action="<?= base_url('ruang_ujian/jawab_aksi'); ?>" method="post" onsubmit="return confirm('Anda Yakin ?')">
                     <input type="hidden" name="id_peserta" value="<?= $id['id_peserta']; ?>">
                     <input type="hidden" name="jumlah_soal" value="<?= $total_soal; ?>">
@@ -46,11 +46,19 @@ $lewat = isset($_SESSION["waktu_start"]) ? time() - $_SESSION["waktu_start"] : $
                                     <tr>
                                         <td width="1%"><?= $index + 1; ?>.</td>
                                         <td>
-                                            <?= $s->pertanyaan; ?>
-                                            <br> <!-- Moved to a new line -->
+                                            <figure class="easyimage easyimage-full">
+                                                <figcaption><?= $s->pertanyaan; ?></figcaption>
+                                                <img src="<?= base_url('uploads/'.$s->image) ?>" alt="" width="300" />
+                                            </figure>
                                             <input type='hidden' name='pertanyaan[]' value='<?= $s->id_soal_ujian; ?>' />
-                                            <?php foreach (['a', 'b', 'c', 'd', 'e'] as $option): ?>
-                                                <input type="radio" name="jawaban[<?= $s->id_soal_ujian; ?>]" value="<?= $option; ?>" required /> <?= $s->$option; ?><br> <!-- Moved to a new line -->
+                                            <?php foreach (['a', 'b', 'c', 'd', 'e'] as $index => $option): ?>
+                                                <input type="radio" name="jawaban[<?= $s->id_soal_ujian; ?>]" value="<?= $option; ?>" required /> <?= chr(65 + $index) . ". " . $s->$option; ?><br> <!-- Moved to a new line -->
+                                            <?php endforeach; ?>
+                                            <br>
+                                            <?= "Alasan Menjawab:" ?>
+                                            <br>
+                                            <?php foreach (['alasan_1', 'alasan_2', 'alasan_3', 'alasan_4', 'alasan_5'] as $opsi): ?>
+                                                <input type="radio" name="alasan[<?= $s->id_soal_ujian; ?>]" value="<?= $opsi; ?>" required /> <?= $s->$opsi; ?><br> <!-- Moved to a new line -->
                                             <?php endforeach; ?>
                                         </td>
                                     </tr>
@@ -68,7 +76,7 @@ $lewat = isset($_SESSION["waktu_start"]) ? time() - $_SESSION["waktu_start"] : $
 
 <?php
 $this->load->view('ujian/js');
-$this->load->view('ujian/foot');
+// $this->load->view('ujian/foot');
 ?>
 
 <script type="text/javascript">

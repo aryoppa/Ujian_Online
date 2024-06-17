@@ -69,8 +69,7 @@ $this->load->view('admin/sidebar');
                             <th>NIS</th>                            
                             <th>Materi</th>                            
                             <th>Tanggal Ujian</th>                            
-                            <th>Jam Ujian</th>                            
-                            <th>Jenis Ujian</th>                            
+                            <th>Jam Ujian</th>                               
                             <th>Benar</th>                            
                             <th>Salah</th>                            
                             <th>Nilai</th>
@@ -88,22 +87,21 @@ $this->load->view('admin/sidebar');
                                 <td><?php echo $d->nama_materi; ?></td>                                
                                 <td><?php echo date('d-m-Y',strtotime($d->tanggal_ujian)); ?></td>
                                 <td><?php echo date('H:i:s',strtotime($d->jam_ujian)); ?></td>
-                                <td><?php echo $d->jenis_ujian; ?></td>
                                 <td>
                                     <?php
-                                    if($d->benar == ''){
+                                    if($d->jawaban_benar == ''){
                                         echo "<span class='btn btn-xs btn-default'>Belum Ujian</span>";
                                     }else {
-                                        echo $d->benar;
+                                        echo $d->jawaban_benar;
                                     }
                                     ?>
                                 </td>                                
                                 <td>
                                     <?php
-                                    if($d->salah == ''){
+                                    if($d->alasan_benar == ''){
                                         echo "<span class='btn btn-xs btn-default'>Belum Ujian</span>";
                                     }else {
-                                        echo $d->salah;
+                                        echo $d->alasan_benar;
                                     }
                                     ?>
                                 </td>

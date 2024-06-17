@@ -21,7 +21,6 @@ class Auth extends CI_Controller
 
 			$where 		= array('username' => $username);
 			$admin 		= $this->db->get_where('tb_admin', ['username' => $username])->row_array();
-			$guru 		= $this->db->get_where('tb_guru', ['username' => $username])->row_array();
 			$siswa 		= $this->db->get_where('tb_siswa', ['username' => $username])->row_array();
 
 			if ($password == $admin['password']) {

@@ -49,31 +49,31 @@ $this->load->view('admin/sidebar');
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Jawaban A</label>
                             <div class="col-sm-10">
-                                <textarea rows="2" style="width: 100%" name="a" required><?= $s->a;?></textarea>
+                                <textarea class="soal" rows="2" style="width: 100%" name="a" required><?= $s->a;?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Jawaban B</label>
                             <div class="col-sm-10">
-                                <textarea rows="2" style="width: 100%" name="b" required><?= $s->b;?></textarea>
+                                <textarea class="soal" rows="2" style="width: 100%" name="b" required><?= $s->b;?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Jawaban C</label>
                             <div class="col-sm-10">
-                                <textarea rows="2" style="width: 100%" name="c" required><?= $s->c;?></textarea>
+                                <textarea class="soal" rows="2" style="width: 100%" name="c" required><?= $s->c;?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Jawaban D</label>
                             <div class="col-sm-10">
-                                <textarea rows="2" style="width: 100%" name="d" required><?= $s->d;?></textarea>
+                                <textarea class="soal" rows="2" style="width: 100%" name="d" required><?= $s->d;?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Jawaban E</label>
                             <div class="col-sm-10">
-                                <textarea rows="2" style="width: 100%" name="e" required><?= $s->e;?></textarea>
+                                <textarea class="soal" rows="2" style="width: 100%" name="e" required><?= $s->e;?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -91,31 +91,31 @@ $this->load->view('admin/sidebar');
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Alasan 1</label>
                             <div class="col-sm-10">
-                                <textarea rows="2" style="width: 100%" name="alasan_1" required><?= $s->alasan_1;?></textarea>
+                                <textarea class="soal" rows="2" style="width: 100%" name="alasan_1" required><?= $s->alasan_1;?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Alasan 2</label>
                             <div class="col-sm-10">
-                                <textarea rows="2" style="width: 100%" name="alasan_2" required><?= $s->alasan_2;?></textarea>
+                                <textarea class="soal" rows="2" style="width: 100%" name="alasan_2" required><?= $s->alasan_2;?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Alasan 3</label>
                             <div class="col-sm-10">
-                                <textarea rows="2" style="width: 100%" name="alasan_3" required><?= $s->alasan_3;?></textarea>
+                                <textarea class="soal" rows="2" style="width: 100%" name="alasan_3" required><?= $s->alasan_3;?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Alasan 4</label>
                             <div class="col-sm-10">
-                                <textarea rows="2" style="width: 100%" name="alasan_4" required><?= $s->alasan_4;?></textarea>
+                                <textarea class="soal" rows="2" style="width: 100%" name="alasan_4" required><?= $s->alasan_4;?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Alasan 5</label>
                             <div class="col-sm-10">
-                                <textarea rows="2" style="width: 100%" name="alasan_5" required><?= $s->alasan_5;?></textarea>
+                                <textarea class="soal" rows="2" style="width: 100%" name="alasan_5" required><?= $s->alasan_5;?></textarea>
                             </div>
                         </div>
                         <div class="form-group">

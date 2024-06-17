@@ -64,7 +64,7 @@ $this->load->view('admin/sidebar');
                     <center><div class="box-title">Tambah Soal Ujian</div></center>
 
                 </div><!-- /.box-header -->
-                <form action="<?= base_url('soal/insert'); ?>" method="post">
+                <form action="<?= base_url('soal/insert'); ?>" method="post" enctype="multipart/form-data">
                     <div class="box-body">
 
                         <div class="form-horizontal">
@@ -88,40 +88,40 @@ $this->load->view('admin/sidebar');
                                     <textarea  class="soal" name="pertanyaan" rows="10" cols="80" required></textarea>
                                 </div>
                             </div>
-                            <!-- <div class="form-group">
-                                <label class="col-sm-2 control-label">Upload Gambar Soal Ujian</label>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="image">Upload Image</label>
                                 <div class="col-sm-10">
-                                    <input type="file" class="form-control-file" name="gambar_soal">
+                                    <input type="file" class="form-control" name="image" required>
                                 </div>
-                            </div> -->
+                            </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Jawaban A</label>
                                 <div class="col-sm-10">
-                                    <textarea rows="2" style="width: 100%" name="a" required></textarea>
+                                    <textarea class="soal" rows="2" style="width: 100%" name="a" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Jawaban B</label>
                                 <div class="col-sm-10">
-                                    <textarea rows="2" style="width: 100%" name="b" required></textarea>
+                                    <textarea class="soal" rows="2" style="width: 100%" name="b" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Jawaban C</label>
                                 <div class="col-sm-10">
-                                    <textarea rows="2" style="width: 100%" name="c" required></textarea>
+                                    <textarea class="soal" rows="2" style="width: 100%" name="c" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Jawaban D</label>
                                 <div class="col-sm-10">
-                                    <textarea rows="2" style="width: 100%" name="d" required></textarea>
+                                    <textarea class="soal" rows="2" style="width: 100%" name="d" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Jawaban E</label>
                                 <div class="col-sm-10">
-                                    <textarea rows="2" style="width: 100%" name="e" required></textarea>
+                                    <textarea class="soal" rows="2" style="width: 100%" name="e" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -140,31 +140,31 @@ $this->load->view('admin/sidebar');
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Alasan 1</label>
                                 <div class="col-sm-10">
-                                    <textarea rows="2" style="width: 100%" name="alasan_1" required></textarea>
+                                    <textarea class="soal" rows="2" style="width: 100%" name="alasan_1" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Alasan 2</label>
                                 <div class="col-sm-10">
-                                    <textarea rows="2" style="width: 100%" name="alasan_2" required></textarea>
+                                    <textarea class="soal" rows="2" style="width: 100%" name="alasan_2" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Alasan 3</label>
                                 <div class="col-sm-10">
-                                    <textarea rows="2" style="width: 100%" name="alasan_3" required></textarea>
+                                    <textarea class="soal" rows="2" style="width: 100%" name="alasan_3" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Alasan 4</label>
                                 <div class="col-sm-10">
-                                    <textarea rows="2" style="width: 100%" name="alasan_4" required></textarea>
+                                    <textarea class="soal" rows="2" style="width: 100%" name="alasan_4" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Alasan 5</label>
                                 <div class="col-sm-10">
-                                    <textarea rows="2" style="width: 100%" name="alasan_5" required></textarea>
+                                    <textarea class="soal" rows="2" style="width: 100%" name="alasan_5" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">

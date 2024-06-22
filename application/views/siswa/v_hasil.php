@@ -34,6 +34,7 @@ $this->load->view('siswa/sidebar');
                             <th> Jawaban Benar</th>                            
                             <th> Alasan Benar</th>                            
                             <th> Nilai</th>
+                            <th> Detail</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,6 +71,11 @@ $this->load->view('siswa/sidebar');
                                     }else {
                                         echo $d->nilai;
                                     }
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php 
+                                    echo "<a href='" . 'detail_ujian/index/' . "$d->id_peserta' class='btn btn-xs btn-success';'>Mulai Ujian</a>";
                                     ?>
                                 </td>
                             </tr>

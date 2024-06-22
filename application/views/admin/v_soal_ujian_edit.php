@@ -21,7 +21,7 @@ $this->load->view('admin/sidebar');
             <?php foreach($soal as $s)  { ?>
             <!-- TUTUP Tampilan untuk alert -->
             <div class="box box-success" style="overflow-x: scroll;">
-                <form action="<?=base_url('soal_ujian/update');?>" method="post">
+                <form action="<?=base_url('soal_ujian/update');?>" method="post" enctype="multipart/form-data">
                 <div class="box-header">
                    <center><h4 class="box-title">Edit Data</h4></center><p>
                 </div><!-- /.box-header -->
@@ -45,6 +45,12 @@ $this->load->view('admin/sidebar');
                             <div class="col-sm-10">
                                 <textarea name="pertanyaan" class="soal" required><?= $s->pertanyaan;?></textarea>
                             </div>
+                        </div>
+                        <div class="form-group">
+                                <label class="col-sm-2 control-label" for="image">Upload Image</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" name="image" required>
+                                </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Jawaban A</label>

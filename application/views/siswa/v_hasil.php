@@ -74,8 +74,12 @@ $this->load->view('siswa/sidebar');
                                     ?>
                                 </td>
                                 <td>
-                                    <?php 
-                                    echo "<a href='" . 'detail_ujian/index/' . "$d->id_peserta' class='btn btn-xs btn-success';'>Mulai Ujian</a>";
+									<?php
+                                    if($d->nilai == ''){
+                                        echo "<span class='btn btn-xs btn-warning'>Belum Ujian</span>";
+                                    }else {
+										echo "<a href='" . 'detail_ujian/index/' . "$d->id_peserta' class='btn btn-xs btn-success';'>Detail Ujian</a>";
+                                    }
                                     ?>
                                 </td>
                             </tr>

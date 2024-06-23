@@ -91,7 +91,7 @@ $this->load->view('siswa/sidebar');
 													<span class="sr-only">Toggle Dropdown</span>
 												</button>
 												<ul class="dropdown-menu dropdown-menu-left" role="menu">
-													<li><a href="' . base_url('ruang_hasil/detail/') . $d->id_peserta . '">Distribusi Jawaban dan Alasan</a></li>
+													<li><a href="' . base_url('ruang_hasil/distribusi/') . $d->id_peserta . '">Distribusi Jawaban dan Alasan</a></li>
 													<li><a href="' . base_url('ruang_hasil/pembahasan/') . $d->id_peserta . '">Pembahasan Soal</a></li>
 												</ul>
 											  </div>';

@@ -45,7 +45,7 @@ class Hasil_ujian extends CI_Controller
 		$this->mypdf->generate('admin/v_cetak', $data, 'Cetak Hasil Ujian ujian', 'A4', 'Landscape');
 	}
 
-	public function detail($id)
+	public function distribusi($id)
 	{
 		$query = $this->db->query("SELECT * FROM tb_peserta WHERE id_peserta = $id");
 
@@ -85,10 +85,6 @@ class Hasil_ujian extends CI_Controller
 
 		$data['id_peserta'] = $id;
 
-		if ($this->session->userdata('status') =='admin_login') {
-			$this->load->view('admin/v_hasil_ujian', $data);
-		} else {
-			$this->load->view('siswa/v_hasil_ujian', $data);
-		}
+		$this->load->view('admin/v_distribusi', $data);
 	}
 }

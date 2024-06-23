@@ -18,7 +18,7 @@ class Ruang_hasil extends CI_Controller {
 		$this->load->view('siswa/v_hasil', $data);
 	}
 
-	public function detail($id)
+	public function distribusi($id)
 	{
 		$query = $this->db->query("SELECT * FROM tb_peserta WHERE id_peserta = $id");
 
@@ -58,11 +58,7 @@ class Ruang_hasil extends CI_Controller {
 
 		$data['id_peserta'] = $id;
 
-		if ($this->session->userdata('status') =='admin_login') {
-			$this->load->view('admin/v_hasil_ujian', $data);
-		} else {
-			$this->load->view('siswa/v_hasil_ujian', $data);
-		}
+		$this->load->view('siswa/v_distribusi', $data);
 	}
 
 	public function pembahasan($id_peserta)

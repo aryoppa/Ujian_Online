@@ -120,7 +120,9 @@ $this->load->view('admin/sidebar');
                                         echo "<span class='btn btn-xs btn-default'>Belum Ujian</span>";
                                     }else {
                                         echo "<a href='".'hasil_ujian/cetak/'."$d->id_peserta' class='btn btn-xs btn-success' title='Cetak Hasil Ujian' target='_blank'><span class='fa fa-print'></span></a>";;
-                                    }
+										echo " ";
+										echo "<a href='" . 'detail_ujian/index/' . "$d->id_peserta' class='btn btn-xs btn-success';'>Detail Ujian</a>";
+									}
                                     ?>
                                 </td> 
                             </tr>

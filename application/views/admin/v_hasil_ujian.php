@@ -1,12 +1,12 @@
 <?php
-$this->load->view('siswa/head');
+$this->load->view('admin/head');
 ?>
 
 <!-- tambahkan custom css disini -->
 
 <?php
-$this->load->view('siswa/topbar');
-$this->load->view('siswa/sidebar');
+$this->load->view('admin/topbar');
+$this->load->view('admin/sidebar');
 ?>
 
 <!DOCTYPE HTML>
@@ -60,13 +60,10 @@ window.onload = function() {
         <div id="chartContainerAlasan" style="height: 370px; width: 48%;"></div>
     </div>
 	<br/>
-    <div>
-		<a href="<?= base_url('detail_ujian/hasil/') . $id_peserta; ?>" class='btn btn-success'>Lihat Hasil</a>
-	</div>
 </section>
 
 <?php 
-$this->load->view('siswa/js');
+$this->load->view('admin/js');
 ?>
 
 <!-- tambahkan custom js disini -->

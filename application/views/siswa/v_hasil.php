@@ -3,6 +3,12 @@ $this->load->view('siswa/head');
 ?>
 
 <!--tambahkan custom css disini-->
+<style>
+    .dropdown-menu-left {
+        right: 0;
+        left: auto;
+    }
+</style>
 
 <?php
 $this->load->view('siswa/topbar');
@@ -75,12 +81,24 @@ $this->load->view('siswa/sidebar');
                                 </td>
                                 <td>
 									<?php
-                                    if($d->nilai == ''){
-                                        echo "<span class='btn btn-xs btn-warning'>Belum Ujian</span>";
-                                    }else {
-										echo "<a href='" . 'detail_ujian/index/' . "$d->id_peserta' class='btn btn-xs btn-success';'>Detail Ujian</a>";
-                                    }
-                                    ?>
+                                    if ($d->nilai == '') {
+										echo "<span class='btn btn-xs btn-warning'>Belum Ujian</span>";
+									} else {
+										echo '<div class="btn-group">
+												<button type="button" class="btn btn-success btn-flat btn-xs">Detail</button>
+												<button type="button" class="btn btn-success btn-xs btn-flat dropdown-toggle" data-toggle="dropdown">
+													<span class="caret"></span>
+													<span class="sr-only">Toggle Dropdown</span>
+												</button>
+												<ul class="dropdown-menu dropdown-menu-left" role="menu">
+													<li><a href="' . base_url('ruang_hasil/detail/') . $d->id_peserta . '">Distribusi Jawaban dan Alasan</a></li>
+													<li><a href="' . base_url('ruang_hasil/pembahasan/') . $d->id_peserta . '">Pembahasan Soal</a></li>
+												</ul>
+											  </div>';
+									}
+									?>
+									
+									
                                 </td>
                             </tr>
                         <?php } ?>                  

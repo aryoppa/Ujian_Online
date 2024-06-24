@@ -95,6 +95,12 @@ $this->load->view('admin/sidebar');
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">Indikator Pencapaian Kompetensi</label>
+                                <div class="col-sm-10">
+                                    <textarea  class="pertanyaan" name="IPK" rows="10" cols="80" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label">Jawaban A</label>
                                 <div class="col-sm-10">
                                     <textarea class="soal" rows="2" style="width: 100%" name="a" required></textarea>

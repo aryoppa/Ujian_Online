@@ -43,6 +43,7 @@ $this->load->view('admin/sidebar');
                         <tr>
                             <th>No</th>
                             <th>MATERI</th>
+                            <th>INDIKATOR PENCAPAIAN KOMPETENSI</th>
                             <th>SOAL UJIAN</th>
                             <th>KUNCI JAWABAN</th>
                             <th>ALASAN</th>
@@ -56,6 +57,7 @@ $this->load->view('admin/sidebar');
                             <tr>
                                 <td><?= $index + 1; ?></td>
                                 <td><?= $d->nama_materi; ?></td>
+                                <td><?= $d->IPK; ?></td>
                                 <td>
                                     <?= $d->pertanyaan; ?>
                                     <img src="<?= base_url('uploads/'.$d->image) ?>" alt="Image">

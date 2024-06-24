@@ -30,15 +30,15 @@ $this->load->view('siswa/sidebar');
                     <center><h3 class="box-title">Hasil Ujian</h3></center>
                 </div>
               <div class="box-body">
-                <table id="data" class="table table-bordered table-striped">                    
+                <table id="data" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th width="1%">No</th>
-                            <th> Pelajaran</th>                            
-                            <th> Tanggal Ujian</th>                            
-                            <th> Jam </th>                            
-                            <th> Jawaban Benar</th>                            
-                            <th> Alasan Benar</th>                            
+                            <th> Pelajaran</th>
+                            <th> Tanggal Ujian</th>
+                            <th> Jam </th>
+                            <th> Jawaban Benar</th>
+                            <th> Alasan Benar</th>
                             <th> Nilai</th>
                             <th> Detail</th>
                         </tr>
@@ -48,10 +48,10 @@ $this->load->view('siswa/sidebar');
                         $no=1;
                         foreach($hasil as $d) { ?>
                             <tr>
-                                <td><?php echo $no++; ?></td>                              
-                                <td><?php echo $d->nama_materi; ?></td>                                
-                                <td><?php echo date('d-m-Y',strtotime($d->tanggal_ujian)); ?></td>                               
-                                <td><?php echo date('H:i:s',strtotime($d->jam_ujian)); ?></td>                                
+                                <td><?php echo $no++; ?></td>
+                                <td><?php echo $d->nama_materi; ?></td>
+                                <td><?php echo date('d-m-Y',strtotime($d->tanggal_ujian)); ?></td>
+                                <td><?php echo date('H:i:s',strtotime($d->jam_ujian)); ?></td>
                                 <td>
                                     <?php
                                     if($d->jawaban_benar == ''){
@@ -60,7 +60,7 @@ $this->load->view('siswa/sidebar');
                                         echo $d->jawaban_benar;
                                     }
                                     ?>
-                                </td>                                
+                                </td>
                                 <td>
                                     <?php
                                     if($d->alasan_benar == ''){
@@ -80,8 +80,8 @@ $this->load->view('siswa/sidebar');
                                     ?>
                                 </td>
                                 <td>
-									<?php
-                                    if ($d->nilai == '') {
+								<?php
+									if ($d->nilai == '') {
 										echo "<span class='btn btn-xs btn-warning'>Belum Ujian</span>";
 									} else {
 										echo '<div class="btn-group">
@@ -91,17 +91,15 @@ $this->load->view('siswa/sidebar');
 													<span class="sr-only">Toggle Dropdown</span>
 												</button>
 												<ul class="dropdown-menu dropdown-menu-left" role="menu">
-													<li><a href="' . base_url('ruang_hasil/distribusi/') . $d->id_peserta . '">Distribusi Jawaban dan Alasan</a></li>
+													<li><a href="' . base_url('ruang_hasil/rekapitulasi/') . $d->id_peserta . '/' . $d->id_materi . '">Rekapitulasi</a></li>
 													<li><a href="' . base_url('ruang_hasil/pembahasan/') . $d->id_peserta . '">Pembahasan Soal</a></li>
 												</ul>
-											  </div>';
+											</div>';
 									}
-									?>
-									
-									
+								?>
                                 </td>
                             </tr>
-                        <?php } ?>                  
+                        <?php } ?>
                     </tbody> 
                 </table>
             </div>

@@ -121,7 +121,7 @@ $this->load->view('admin/sidebar');
                                     }else {
                                         echo "<a href='".'hasil_ujian/cetak/'."$d->id_peserta' class='btn btn-xs btn-success' title='Cetak Hasil Ujian' target='_blank'><span class='fa fa-print'></span></a>";;
 										echo " ";
-										echo "<a href='" . 'detail_ujian/index/' . "$d->id_peserta' class='btn btn-xs btn-success';'>Detail Ujian</a>";
+										echo "<a href='" . 'hasil_ujian/distribusi/' . "$d->id_peserta' class='btn btn-xs btn-success';'>Detail Ujian</a>";
 									}
                                     ?>
                                 </td> 

@@ -36,7 +36,7 @@
         <div class="login-box-body">
 
             <div class="login-logo">
-                <img src="image/logo1.png" alt="" width="35%"><br>
+                <img src="image/logoE-FAST.png" alt="" width="100%" style="padding: 30px"><br>
                 <a href="#"><b>Ujian</b> Online</a>
             </div><!-- /.login-logo -->
            

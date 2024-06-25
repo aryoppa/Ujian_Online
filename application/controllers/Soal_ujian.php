@@ -39,6 +39,7 @@ class soal_ujian extends CI_Controller {
 		$id 				= $this->input->post('id');
 		$nama_materi 		= $this->input->post('nama_materi');
 		$pertanyaan			= $this->input->post('pertanyaan');
+		$IPK				= $this->input->post('IPK');
 		$a 					= $this->input->post('a');
 		$b					= $this->input->post('b');
 		$c					= $this->input->post('c');
@@ -53,10 +54,19 @@ class soal_ujian extends CI_Controller {
 		$kunci_alasan		= $this->input->post('kunci_alasan');
 		$pembahasan			= $this->input->post('pembahasan');
 
+		// // Handle file upload
+		// $config['upload_path'] = './uploads/';
+		// $config['allowed_types'] = 'gif|jpg|png';
+		// $config['max_size'] = 2048; // 2MB
+		// $config['encrypt_name'] = TRUE;
+
+		// $this->upload->initialize($config);
+
 		$where = array('id_soal_ujian'=>$id);
 		$data = array(
 			'id_materi'=>$nama_materi,
 			'pertanyaan'=>$pertanyaan,
+			'IPK' => $IPK,
 			'a'=>$a,
 			'b'=>$b,
 			'c'=>$c,

@@ -6,9 +6,9 @@
     <!-- Logo -->
     <span class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>U</b> O</span>
+      <!-- <span class="logo-mini"><b>U</b> O</span> -->
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Ujian</b> Online</span>
+      <span class="logo-lg"><b>E - FAST</span>
     </span>
    
     <!-- Header Navbar: style can be found in header.less -->

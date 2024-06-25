@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ujian Online</title>
+    <title>E - FAST</title>
     <link rel="shortcut icon" href="image/fav.png">
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -37,7 +37,7 @@
 
             <div class="login-logo">
                 <img src="image/logo1.png" alt="" width="35%"><br>
-                <a href="#"><b>Ujian</b> Online</a>
+                <a href="#"><b>E - FAST</a>
             </div><!-- /.login-logo -->
            
 

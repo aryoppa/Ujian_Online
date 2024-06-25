@@ -49,9 +49,15 @@ $this->load->view('admin/sidebar');
                         <div class="form-group">
                                 <label class="col-sm-2 control-label" for="image">Upload Image</label>
                                 <div class="col-sm-10">
-                                    <input type="file" class="form-control" name="image" required>
+                                    <input type="file" class="form-control" name="image">
                                 </div>
                         </div>
+                        <div class="form-group">
+                                <label class="col-sm-2 control-label">Indikator Pencapaian Kompetensi</label>
+                                <div class="col-sm-10">
+                                    <textarea  class="pertanyaan" name="IPK" rows="10" cols="80" required><?= $s->IPK; ?></textarea>
+                                </div>
+                            </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Jawaban A</label>
                             <div class="col-sm-10">

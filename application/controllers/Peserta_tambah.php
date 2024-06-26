@@ -45,7 +45,7 @@ class peserta_tambah extends CI_Controller
 			'id_siswa'		=> $id_siswa,
 		);
 		
-		if ($id_materi == '' || $tanggal_ujian == '' || $jam_ujian == '' || $durasi_ujian == '') {
+		if ($id_materi == '' || $tanggal_ujian == '' || $jam_ujian == '') {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i> Input Data Peserta Gagal !</h4> Cek kembali data yang diinputkan.</div>');
 			redirect(base_url('peserta_tambah'));
 		} else {

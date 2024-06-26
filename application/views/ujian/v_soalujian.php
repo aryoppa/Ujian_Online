@@ -1,10 +1,10 @@
 <?php
 $this->load->view('ujian/head');
 $this->load->view('ujian/topbar');
-$lewat = isset($_SESSION["waktu_start"]) ? time() - $_SESSION["waktu_start"] : $_SESSION["waktu_start"] = time();
+// $lewat = isset($_SESSION["waktu_start"]) ? time() - $_SESSION["waktu_start"] : $_SESSION["waktu_start"] = time();
 ?>
 
-<style>
+<!-- <style>
     #timer_place, #counter {
         text-align: center;
         margin: 0 auto;
@@ -16,11 +16,11 @@ $lewat = isset($_SESSION["waktu_start"]) ? time() - $_SESSION["waktu_start"] : $
         font-size: 2em;
         font-weight: bolder;
     }
-</style>
+</style> -->
 
 <section class="content">
   <div class="row">
-    <div class="col-md-12">
+    <!-- <div class="col-md-12">
         <div class="box box-success">
             <div class="box-header text-center">
               <h4 class="box-title">Waktu Anda</h4>
@@ -29,14 +29,15 @@ $lewat = isset($_SESSION["waktu_start"]) ? time() - $_SESSION["waktu_start"] : $
                 <span id="counter"></span>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="col-md-12">
         <div class="box-header with-border text-center">
            <h3 class="box-title">Soal Ujian</h3>
         </div>
         <div class="box-body" style="height: 100%; width: 100%;">
             <form id="formSoal" role="form" action="<?= base_url('ruang_ujian/jawab_aksi'); ?>" method="post" onsubmit="return confirm('Anda Yakin ?')">
-                <input type="hidden" name="id_peserta" value="<?= $id['id_peserta']; ?>">
+            <input type="hidden" name="id_materi" value="<?= $id['id_materi']; ?>">    
+            <input type="hidden" name="id_peserta" value="<?= $id['id_peserta']; ?>">
                 <input type="hidden" name="jumlah_soal" value="<?= $total_soal; ?>">
                 <?php foreach ($soal as $index => $s): ?>
                     <div class="form-group">

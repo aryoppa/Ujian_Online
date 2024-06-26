@@ -24,14 +24,17 @@ class Ruang_ujian extends CI_Controller
 			"soal" => $soal_ujian->result(),
 			"total_soal" => $soal_ujian->num_rows(),
 			"max_time" => $time,
-			"id" => $id
+			"id" => $id,
+			"id_materi" => $id['id_materi'] // Save id_materi to data array
 		);
+		// echo '<pre>' . print_r($data, true) . '</pre>';
 		$this->load->view('ujian/v_soalujian', $data);
 	}
 
 	public function jawab_aksi()
 	{
 		$id_peserta = $this->input->post('id_peserta');
+		$id_materi = $this->input->post('id_materi'); // Get id_materi from POST data
 		$jumlah 	= $_POST['jumlah_soal'];
 		$id_soal 	= $_POST['pertanyaan'];
 		$jawaban 	= $_POST['jawaban'];
@@ -40,12 +43,14 @@ class Ruang_ujian extends CI_Controller
 			$nomor = $id_soal[$i];
 			$jawaban[$nomor];
 			$data[] = array(
+				'id_materi' => $id_materi,
 				'id_peserta' => $id_peserta,
 				'id_soal_ujian' => $nomor,
 				'jawaban' => $jawaban[$nomor],
 				'alasan'	=> $alasan[$nomor],
 			);
 		}
+		// echo '<pre>' . print_r($data, true) . '</pre>';
 		$this->db->insert_batch('tb_jawaban', $data);
 		$cek = $this->db->query('SELECT id_jawaban, jawaban, alasan, tb_soal_ujian.kunci_jawaban, tb_soal_ujian.kunci_alasan FROM tb_jawaban join tb_soal_ujian ON tb_jawaban.id_soal_ujian=tb_soal_ujian.id_soal_ujian WHERE id_peserta="' . $id_peserta . '"');
 		$jumlah = $cek->num_rows();

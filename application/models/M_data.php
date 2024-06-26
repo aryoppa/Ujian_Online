@@ -50,7 +50,7 @@ class M_data extends CI_Model
 	// Fungsi untuk insert lebih dari 1 data
 	public function insert_multiple($data)
 	{
-		$durasi_ujian		= $this->input->post('durasi_ujian');
+		// $durasi_ujian		= $this->input->post('durasi_ujian');
 				
 		$timer_ujian 		= $durasi_ujian*60;
 
@@ -63,7 +63,7 @@ class M_data extends CI_Model
 				// 'id_jenis_ujian'=> $this->input->post('id_jenis_ujian'),
 				'tanggal_ujian' => $this->input->post('tanggal_ujian'),
 				'jam_ujian' 	=> $this->input->post('jam_ujian'),
-				'durasi_ujian' 	=> $durasi_ujian,
+				// 'durasi_ujian' 	=> $durasi_ujian,
 				'timer_ujian' 	=> $timer_ujian,
 				'status_ujian' 	=> 1
 

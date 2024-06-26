@@ -40,7 +40,7 @@ $this->load->view('admin/sidebar');
                                 <th>Nama Materi</th>
                                 <!-- <th>Jenis Ujian</th> -->
                                 <th>Waktu Ujian</th>
-                                <th>Durasi Ujian</th>
+                                <!-- <th>Durasi Ujian</th> -->
                                 <th width="7%">Action</th>
                                 <th>Status </th>
                                
@@ -57,7 +57,7 @@ $this->load->view('admin/sidebar');
                                     <td><?php echo $d->nama_materi; ?></td>
                                     <!-- <td><?php echo $d->jenis_ujian; ?></td> -->
                                     <td><?php echo date('d-m-Y', strtotime($d->tanggal_ujian)); ?> | <?php echo $d->jam_ujian; ?></td>
-                                    <td><?php echo $d->durasi_ujian; ?> Menit</td>
+                                    <!-- <td><?php echo $d->durasi_ujian; ?> Menit</td> -->
                                     <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-warning btn-flat btn-xs">Action</button>

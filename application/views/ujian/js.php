@@ -1,12 +1,6 @@
   </div>
   </div><!-- /.content-wrapper -->
 
-  <footer class="main-footer">
-  	<div class="pull-right hidden-xs">
-
-  	</div>
-  	<strong>Copyright &copy; 2020 <a href="#"></a></strong> All rights reserved. | Repost by <a href='https://stokcoding.com/' title='StokCoding.com' target='_blank'>StokCoding.com</a>
-  </footer>
 
   </div>
   <!-- ./wrapper -->

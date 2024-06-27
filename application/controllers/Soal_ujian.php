@@ -24,6 +24,7 @@ class soal_ujian extends CI_Controller {
 			$data['soal_ujian'] = $this->db->query('SELECT * FROM tb_soal_ujian join tb_materi ON tb_soal_ujian.id_materi=tb_materi.id_materi order by id_soal_ujian desc')->result();
 			$data['kelas']=$this->m_data->get_data('tb_materi')->result();
 		}					
+		
 		$this->load->view('admin/v_soal_ujian', $data);
 	}
 
@@ -88,10 +89,19 @@ class soal_ujian extends CI_Controller {
 
 	public function hapus($id) 
 	{
-		$where = array(
-					'id_soal_ujian'=>$id
-				);
-		$this->m_data->delete_data($where,'tb_soal_ujian');
+		$where = array('id_soal_ujian' => $id);
+		
+		// Get the image name from the database
+		$soal = $this->m_data->get_data_where('tb_soal_ujian', $where)->row();
+		$image = $soal->image;
+
+		// Delete the image file if it exists
+		if ($image && file_exists('./uploads/' . $image)) {
+			unlink('./uploads/' . $image);
+		}
+
+		// Delete the record from the database
+		$this->m_data->delete_data($where, 'tb_soal_ujian');
 		$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i> Perhatian, Data telah berhasil dihapus!</h4></div>');
 		redirect(base_url('soal_ujian'));
 	}

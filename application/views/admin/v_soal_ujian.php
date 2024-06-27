@@ -60,9 +60,7 @@ $this->load->view('admin/sidebar');
                                 <td><?= $d->IPK; ?></td>
                                 <td>
                                     <?= $d->pertanyaan; ?>
-                                    <?php if (!empty($d->image) && (pathinfo($d->image, PATHINFO_EXTENSION) == 'jpg' || pathinfo($d->image, PATHINFO_EXTENSION) == 'png')): ?>
-                                        <img src="<?= base_url('uploads/'.$d->image) ?>" alt="" width="300" onerror="this.onerror=null; this.src='<?= base_url('uploads/default.png') ?>';">
-                                    <?php endif; ?>
+                                    <img src="<?= base_url('uploads/'.$d->image) ?>" alt="" width="300" onerror="this.onerror=null; this.src='<?= base_url('uploads/default.png') ?>';" style="display: <?= empty($d->image) ? 'none' : 'block'; ?>;">
                                     <ol type="A">
                                         <?php foreach (['a', 'b', 'c', 'd', 'e'] as $option): ?>
                                             <li<?= $d->kunci_jawaban == strtoupper($option) ? ' style="font-weight:bold;"' : ''; ?>>

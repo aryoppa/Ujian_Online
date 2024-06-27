@@ -37,7 +37,7 @@
 
             <div class="login-logo">
                 <img src="image/logoE-FAST.png" alt="" width="100%" style="padding: 30px"><br>
-                <a href="#"><b>Ujian</b> Online</a>
+                <a href="#"><b>E - FAST</a>
             </div><!-- /.login-logo -->
            
 

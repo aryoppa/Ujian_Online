@@ -32,7 +32,6 @@ date_default_timezone_set('Asia/Jakarta');
                                 <th>Kode </th>
                                 <th>Mata Pelajaran</th>
                                 <th>Waktu Ujian</th>
-                                <th>Durasi </th>
                                 <th>Status</th>
                                
                             </tr>
@@ -47,7 +46,6 @@ date_default_timezone_set('Asia/Jakarta');
                                     <td><?php echo $d->kode_materi; ?></td>
                                     <td><?php echo $d->nama_materi; ?></td>
                                     <td><?php echo date('d-m-Y', strtotime($d->tanggal_ujian)); ?> | <?php echo date('H:i:s', strtotime($d->jam_ujian)); ?></td>
-                                    <td><?php echo $d->durasi_ujian; ?> Menit</td>
                                     <td>
                                         <?php if ($d->status_ujian == 0) {
                                                 echo "<span> Belum Mulai Ujian </span>";
@@ -56,13 +54,6 @@ date_default_timezone_set('Asia/Jakarta');
                                             } else if ($d->status_ujian == 1) {
                                                 if ($d->status_ujian == 1) {
                                                     echo "<a href='" . 'ruang_ujian/soal/' . "$d->id_peserta' class='btn btn-xs btn-success';'>Mulai Ujian</a>";
-                                                    // if (Date('d-m-Y', strtotime($d->tanggal_ujian)) == Date('d-m-Y') && Date('H:i:s', strtotime($d->jam_ujian)) <= Date('H:i:s')) {
-                                                    //     echo "<a href='" . 'ruang_ujian/soal/' . "$d->id_peserta' class='btn btn-xs btn-success';'>Mulai Ujian</a>";
-                                                    // } else if (Date('d-m-Y', strtotime($d->tanggal_ujian)) == Date('d-m-Y') && Date('H:i:s', strtotime($d->jam_ujian)) <= Date('H:i:s')) {
-                                                    //     echo "Waktu Ujian Habis";
-                                                    // } else {
-                                                    //     echo "Tuggu Waktu Ujian";
-                                                    // }
                                                 }
                                             }
                                             ?>

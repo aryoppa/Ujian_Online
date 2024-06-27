@@ -1,11 +1,5 @@
 </div><!-- /.content-wrapper -->
 
-<footer class="main-footer">
-	<div class="pull-right hidden-xs">
-		<b></b>
-	</div>
-	Copyright &#169; <script type='text/javascript'>var creditsyear = new Date();document.write(creditsyear.getFullYear());</script> <a expr:href='data:blog.homepageUrl'><data:blog.title/></a>. All rights reserved. | Repost by <a href='https://sharecodingan.blogspot.com/' title='sharecodingan.blogspot.com' target='_blank'>ShareCodingan</a>
-</footer>
 
 </div>
 <!-- ./wrapper -->

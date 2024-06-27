@@ -16,26 +16,38 @@ $this->load->view('siswa/sidebar');
 <section class="content">
 
     <div class="callout callout-info">
-        <h4>Selamat Datang, <?php echo $this->session->userdata('nama');?> </h4>
-        
+        <h4>Selamat Datang, <?= $this->session->userdata('nama'); ?> </h4>
+    </div>
+    <div class="box box-success box-solid">
+        <div class="box-header with-border">
+            <h3 class="box-title">E-Fast</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <dl>
+                <dd>
+                    <ol>
+                        <b>E-FAST (E-Formative Diagnostic Test) adalah platform tes online yang memungkinkan Anda untuk mengevaluasi dan memperdalam pemahaman tentang Gelombang Bunyi. Melalui serangkaian soal pilihan ganda dua tingkat, Anda bisa mengukur seberapa baik pemahaman terhadap materi-materi Gelombang Bunyi. Gunakan E-FAST dengan mudah dari browser web apa saja—seperti Google Chrome, Mozilla Firefox, atau Microsoft Edge—dan belajar lebih efektif kapan pun Anda mau!</b>
+                    </ol>
+                </dd>
+            </dl>
+        </div><!-- /.box-body -->
     </div>
 
     <div class="box box-success box-solid">
         <div class="box-header with-border">
-            <h3 class="box-title">Petunjuk Penggunaan Ujian Online</h3>
+            <h3 class="box-title">Petunjuk Pengisian Tes</h3>
         </div><!-- /.box-header -->
         <div class="box-body">
             <dl>
-                <dt></dt>
                 <dd>
-                    <ol><br>
-                        <li><b>Jadwal Ujian</b></li>
-                        di TAB Jadwal Ujian, terdapat jadwal ujian yang telah didaftarkan oleh administrator sebagai peserta ujian bahwa anda berhak melaksanakan ujian. Apbila di ruang tersebut tidak tersedia jadwal ujian silahkan hubungin administrator untuk mendapatkan informasi lebih lanjut
-                        selanjutnya ketika anda sudah memiliki waktu ujian, silahkan anda klik tombol <b>Mulai</b> yang tersedia ketika waktu telah menunjukan mulainya waktu ujian.
-                        <li><b>Hasil Ujian</b></li>
-                        di TAB Hasil Ujian, anda dapat melihat secara langsung hasil ujian yang telah anda lakukan di Ruang Jadwal Ujian.
-                        <li><b>Ganti Password</b></li>
-                        di TAB Ganti Password, anda dapat mengganti password sesuai keinginan anda setelah anda mendapatkan password default dari pihak administrator. ketika anda lupa password, anda dapat menghubungi pihak administrator agar mendapatkan password terbaru.
+                    <ol>
+                        <li><b>Tes terdiri dari 15 butir soal pilihan ganda dua tingkat.</b></li>
+                        <li><b>Tingkat pertama berupa pertanyaan dan tingkat kedua berupa alasan memilih jawaban pada tingkat pertama</b></li>
+                        <li><b>Pilihlah salah satu jawaban yang Anda anggap paling tepat untuk tingkat pertama</b></li>
+                        <li><b>Kemudian, pilihlah salah satu jawaban alasan yang Anda anggap paling tepat untuk tingkat kedua</b></li>
+                        <li><b>Semua butir soal wajib dikerjakan</b></li>
+                        <li><b>Apabila sudah yakin dan mengerjakan semua butir soal beserta alasannya, tekan tombol “submit”</b></li>
+                        <li><b>Lihat hasil jawaban secara detail</b></li>
                     </ol>
                 </dd>
             </dl>
@@ -51,17 +63,13 @@ $this->load->view('siswa/js');
 <!--tambahkan custom js disini-->
 
 <script type="text/javascript">
+    $(function(){
+        $('#data-tables').dataTable();
+    });
 
-	$(function(){
-		$('#data-tables').dataTable();
-	});
-
-	$('.alert-message').alert().delay(3000).slideUp('slow');
-
+    $('.alert-message').alert().delay(3000).slideUp('slow');
 </script>
-
 
 <?php
 $this->load->view('admin/foot');
 ?>
-

@@ -24,7 +24,6 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?=base_url('image/avatar.png')?>" class="user-image" alt="User Image">
               <span class="hidden-xs">Halo, <?php echo $this->session->userdata('nama');?></span>
             </a>
           </li>

@@ -4,7 +4,10 @@ defined('BASEPATH') or exit('no direct script access allowed');
 class M_data extends CI_Model
 {
 
-
+	public function get_data_where($table, $where)
+	{
+		return $this->db->get_where($table, $where);
+	}
 	//fungsi untuk mengambil data dari database
 	public function get_data($table)
 	{

@@ -40,6 +40,7 @@ class soal_ujian extends CI_Controller {
 		$id 				= $this->input->post('id');
 		$nama_materi 		= $this->input->post('nama_materi');
 		$pertanyaan			= $this->input->post('pertanyaan');
+		$pertanyaan_2			= $this->input->post('pertanyaan_2');
 		$IPK				= $this->input->post('IPK');
 		$a 					= $this->input->post('a');
 		$b					= $this->input->post('b');
@@ -54,14 +55,14 @@ class soal_ujian extends CI_Controller {
 		$alasan_5			= $this->input->post('alasan_5');
 		$kunci_alasan		= $this->input->post('kunci_alasan');
 		$pembahasan			= $this->input->post('pembahasan');
+		$pembahasan_2			= $this->input->post('pembahasan_2');
 
 		// Handle file upload
 		$config['upload_path'] = './uploads/';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['max_size'] = 2048; // 2MB
 		$config['encrypt_name'] = TRUE;
-
-		$this->upload->initialize($config);
+		$this->load->library('upload', $config);
 
 		$image = NULL;
 		$image_pembahasan = NULL;
@@ -80,6 +81,7 @@ class soal_ujian extends CI_Controller {
 		$data = array(
 			'id_materi' => $nama_materi,
 			'pertanyaan' => $pertanyaan,
+			'pertanyaan_2' => $pertanyaan_2,
 			'IPK' => $IPK,
 			'a' => $a,
 			'b' => $b,
@@ -94,6 +96,7 @@ class soal_ujian extends CI_Controller {
 			'alasan_5' => $alasan_5,
 			'kunci_alasan' => $kunci_alasan,
 			'pembahasan' => $pembahasan,
+			'pembahasan_2' => $pembahasan_2,
 		);
 
 		if ($image) {

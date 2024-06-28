@@ -42,6 +42,16 @@ $this->load->view('siswa/sidebar');
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <strong><?= $no; ?>. Pertanyaan:</strong> <?= $j->pertanyaan; ?>
+                                <?php if (!empty($j->image)): ?>
+                                    <div>
+                                        <img src="<?= base_url('uploads/' . $j->image); ?>" alt="Image" width="300">
+                                    </div>
+                                <?php endif; ?>
+                                <?php if (!empty($j->pertanyaan_2)): ?>
+                                    <div>
+                                        <?= $j->pertanyaan_2; ?>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                             <div class="panel-body">
                                 <div><strong>Jawaban dan Alasan Anda:</strong></div>
@@ -100,9 +110,18 @@ $this->load->view('siswa/sidebar');
 								<br/>
 								<div class="panel-content">
 									<strong>Pembahasan:</strong>
-							
 									<div>
-										<?= $j->pembahasan; ?>
+                                        <?= $j->pembahasan; ?>
+                                        <?php if (!empty($j->image_pembahasan)): ?>
+                                        <div>
+                                            <img src="<?= base_url('uploads/' . $j->image_pembahasan); ?>" alt="Image" width="300">
+                                        </div>
+                                        <?php endif; ?>
+                                        <?php if (!empty($j->pembahasan_2)): ?>
+                                            <div>
+                                                <?= $j->pembahasan_2; ?>
+                                            </div>
+                                        <?php endif; ?>
 									</div>
 								</div>
                             </div>

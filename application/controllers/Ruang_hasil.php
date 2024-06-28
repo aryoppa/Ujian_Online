@@ -131,6 +131,8 @@ class Ruang_hasil extends CI_Controller {
         $query = $this->db->query("
             SELECT 
                 s.pertanyaan,
+                s.image,
+                s.pertanyaan_2,
                 j.jawaban,
                 s.kunci_jawaban,
                 CASE 
@@ -168,7 +170,9 @@ class Ruang_hasil extends CI_Controller {
                     ELSE 'Kunci alasan tidak valid'
                 END AS kunci_alasan_text,
                 p.nilai,
-                s.pembahasan
+                s.pembahasan,
+                s.image_pembahasan,
+                s.pembahasan_2
             FROM 
                 tb_soal_ujian s
             JOIN 

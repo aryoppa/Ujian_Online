@@ -53,6 +53,12 @@ $this->load->view('admin/sidebar');
                                 </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-sm-2 control-label">Tulis Soal Ujian</label>
+                            <div class="col-sm-10">
+                                <textarea name="pertanyaan_2" class="soal"><?= $s->pertanyaan_2;?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
                                 <label class="col-sm-2 control-label">Indikator Pencapaian Kompetensi</label>
                                 <div class="col-sm-10">
                                     <textarea  class="pertanyaan" name="IPK" rows="10" cols="80" required><?= $s->IPK; ?></textarea>
@@ -146,6 +152,18 @@ $this->load->view('admin/sidebar');
                             <label class="col-sm-2 control-label">Tulis Pembahasan</label>
                             <div class="col-sm-10">
                                 <textarea name="pembahasan" class="soal" required><?= $s->pembahasan;?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <label class="col-sm-2 control-label" for="image">Upload Image</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" name="image_pembahasan">
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Tulis Pembahasan</label>
+                            <div class="col-sm-10">
+                                <textarea name="pembahasan_2" class="soal" required><?= $s->pembahasan_2;?></textarea>
                             </div>
                         </div>
                         <div class="form-group">

@@ -61,6 +61,7 @@ $this->load->view('admin/sidebar');
                                 <td>
                                     <?= $d->pertanyaan; ?>
                                     <img src="<?= base_url('uploads/'.$d->image) ?>" alt="" width="300" onerror="this.onerror=null; this.src='<?= base_url('uploads/default.png') ?>';" style="display: <?= empty($d->image) ? 'none' : 'block'; ?>;">
+                                    <?= $d->pertanyaan_2; ?>
                                     <ol type="A">
                                         <?php foreach (['a', 'b', 'c', 'd', 'e'] as $option): ?>
                                             <li<?= $d->kunci_jawaban == strtoupper($option) ? ' style="font-weight:bold;"' : ''; ?>>
@@ -79,7 +80,11 @@ $this->load->view('admin/sidebar');
                                     </ol>
                                 </td>
                                 <td><strong><?= $d->kunci_alasan; ?></strong></td>
-                                <td><?= $d->pembahasan; ?></td>
+                                <td>
+                                    <?= $d->pembahasan; ?>
+                                    <img src="<?= base_url('uploads/'.$d->image_pembahasan) ?>" alt="" width="300" onerror="this.onerror=null; this.src='<?= base_url('uploads/default.png') ?>';" style="display: <?= empty($d->image) ? 'none' : 'block'; ?>;">
+                                    <?= $d->pembahasan_2; ?>
+                                </td>
                                 <td>
                                     <a href="<?= base_url() . 'soal_ujian/edit/' . $d->id_soal_ujian; ?>" class="btn btn-xs btn-success" title="Ubah"><i class="glyphicon glyphicon-edit"></i></a>
                                     <a href="<?= base_url() . 'soal_ujian/hapus/' . $d->id_soal_ujian; ?>" class="btn btn-xs btn-danger" onclick="return confirm('Apakah yakin data soal ini akan di hapus?')" title="Hapus"><i class="glyphicon glyphicon-trash"></i></a>

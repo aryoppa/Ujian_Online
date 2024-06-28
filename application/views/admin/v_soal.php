@@ -91,7 +91,13 @@ $this->load->view('admin/sidebar');
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="image">Upload Image</label>
                                 <div class="col-sm-10">
-                                    <input type="file" class="form-control" name="image" required>
+                                    <input type="file" class="form-control" name="image">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Tulis Soal Ujian</label>
+                                <div class="col-sm-10">
+                                    <textarea  class="soal" name="pertanyaan_2" rows="10" cols="80"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -189,7 +195,19 @@ $this->load->view('admin/sidebar');
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Tulis Pembahasan</label>
                                 <div class="col-sm-10">
-                                    <textarea  class="soal" name="pembahasan" rows="10" cols="80" required></textarea>
+                                    <textarea class="soal" name="pembahasan" rows="10" cols="80" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="image">Upload Image</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" name="image_pembahasan">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Tulis Pembahasan</label>
+                                <div class="col-sm-10">
+                                    <textarea class="soal" name="pembahasan_2" rows="10" cols="80"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">

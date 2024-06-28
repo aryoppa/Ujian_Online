@@ -25,6 +25,7 @@ $this->load->view('ujian/topbar');
                                         <figure class="easyimage easyimage-full">
                                             <figcaption><?= $s->pertanyaan; ?></figcaption>
                                             <img src="<?= base_url('uploads/'.$s->image) ?>" alt="" width="300" />
+                                            <figcaption><?= $s->pertanyaan_2; ?></figcaption>
                                         </figure>
                                         <input type='hidden' name='pertanyaan[]' value='<?= $s->id_soal_ujian; ?>' />
                                         <?php foreach (['a', 'b', 'c', 'd', 'e'] as $index => $option): ?>

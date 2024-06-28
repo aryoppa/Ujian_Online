@@ -55,37 +55,59 @@ class soal_ujian extends CI_Controller {
 		$kunci_alasan		= $this->input->post('kunci_alasan');
 		$pembahasan			= $this->input->post('pembahasan');
 
-		// // Handle file upload
-		// $config['upload_path'] = './uploads/';
-		// $config['allowed_types'] = 'gif|jpg|png';
-		// $config['max_size'] = 2048; // 2MB
-		// $config['encrypt_name'] = TRUE;
+		// Handle file upload
+		$config['upload_path'] = './uploads/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size'] = 2048; // 2MB
+		$config['encrypt_name'] = TRUE;
 
-		// $this->upload->initialize($config);
+		$this->upload->initialize($config);
 
-		$where = array('id_soal_ujian'=>$id);
+		$image = NULL;
+		$image_pembahasan = NULL;
+
+		if ($this->upload->do_upload('image')) {
+			$image_data = $this->upload->data();
+			$image = $image_data['file_name'];
+		}
+
+		if ($this->upload->do_upload('image_pembahasan')) {
+			$image_pembahasan_data = $this->upload->data();
+			$image_pembahasan = $image_pembahasan_data['file_name'];
+		}
+
+		$where = array('id_soal_ujian' => $id);
 		$data = array(
-			'id_materi'=>$nama_materi,
-			'pertanyaan'=>$pertanyaan,
+			'id_materi' => $nama_materi,
+			'pertanyaan' => $pertanyaan,
 			'IPK' => $IPK,
-			'a'=>$a,
-			'b'=>$b,
-			'c'=>$c,
-			'd'=>$d,
-			'e'=>$e,
-			'kunci_jawaban'=>$kunci_jawaban,
-			'alasan_1'=>$alasan_1,
-			'alasan_2'=>$alasan_2,
-			'alasan_3'=>$alasan_3,
-			'alasan_4'=>$alasan_4,
-			'alasan_5'=>$alasan_5,
-			'kunci_alasan'=>$kunci_alasan,
-			'pembahasan'=>$pembahasan,
+			'a' => $a,
+			'b' => $b,
+			'c' => $c,
+			'd' => $d,
+			'e' => $e,
+			'kunci_jawaban' => $kunci_jawaban,
+			'alasan_1' => $alasan_1,
+			'alasan_2' => $alasan_2,
+			'alasan_3' => $alasan_3,
+			'alasan_4' => $alasan_4,
+			'alasan_5' => $alasan_5,
+			'kunci_alasan' => $kunci_alasan,
+			'pembahasan' => $pembahasan,
 		);
+
+		if ($image) {
+			$data['image'] = $image;
+		}
+
+		if ($image_pembahasan) {
+			$data['image_pembahasan'] = $image_pembahasan;
+		}
+
 		$this->m_data->update_data($where, $data, 'tb_soal_ujian');
 		$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i> Selamat, Soal telah berhasil diupdate!</h4></div>');
 		redirect(base_url('soal_ujian'));
-	}	
+	}
 
 	public function hapus($id) 
 	{
@@ -98,6 +120,10 @@ class soal_ujian extends CI_Controller {
 		// Delete the image file if it exists
 		if ($image && file_exists('./uploads/' . $image)) {
 			unlink('./uploads/' . $image);
+		}
+		// Delete the image file if it exists
+		if ($image_pembahasan && file_exists('./uploads/' . $image_pembahasan)) {
+			unlink('./uploads/' . $image_pembahasan);
 		}
 
 		// Delete the record from the database

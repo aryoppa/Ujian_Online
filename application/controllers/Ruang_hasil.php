@@ -39,6 +39,7 @@ class Ruang_hasil extends CI_Controller {
             if ($item->alasan_benar) {
                 $alasan_benar = $item->alasan_benar;
             }
+			$data['nilai'] = $item->nilai;
         }
 
         $totalQuestions = 15;

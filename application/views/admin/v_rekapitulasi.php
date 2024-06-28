@@ -11,6 +11,26 @@ $this->load->view('admin/sidebar');
 		.panel-heading {
 			background-color: #fff;
 			border-radius: 10px;
+        }
+        #chartContainerSkor {
+            margin: auto;
+            height: 370px;
+            width: 100%;
+			padding: 20px;
+        }
+        .value-box {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-radius: 5px;
+            font-family: 'Source Sans Pro', Helvetica Neue;
+            font-weight: 600;
+        }
+		.badge {
+			font-size: 0.7em;
+			padding: 10px;
+			margin-left: 5px;
+			background-color: #009688;
 		}
 	</style>
     <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
@@ -57,7 +77,7 @@ $this->load->view('admin/sidebar');
 
     <!-- Main content -->
     <section class="content">
-        <div style="padding: 20px;" class="panel-heading"">
+        <div style="padding: 20px;" class="panel-heading">
             <table id="data-tables" class="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -83,8 +103,11 @@ $this->load->view('admin/sidebar');
                 </tbody>
             </table>
         </div>
-        <div style="padding: 50px;">
-            <div id="chartContainerSkor" style="height: 370px; width: 100%;"></div>
+        <div style="padding: 50px; position: relative;">
+            <div class="value-box">
+				<h3 style="font-weight: 550; font-size: 20px">Nilai Anda: <span class="badge badge-success"	style="font-size: 16px"><?= $nilai; ?></span></h3>
+            </div>
+            <div id="chartContainerSkor"></div>
         </div>
     </section>
 
